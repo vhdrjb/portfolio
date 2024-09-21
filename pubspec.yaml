@@ -11,6 +11,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.4.1
   google_fonts: ^6.2.1
   injectable: ^2.4.4
   get_it: ^7.7.0
@@ -35,8 +36,9 @@ flutter:
   uses-material-design: true
 
 
-#  assets:
-#    - assets/fonts/
+  assets:
+    - assets/images/gif/
+    - assets/images/png/
 #    - assets/l10n/
 #    - assets/images/png/
 #    - assets/images/jpg/
