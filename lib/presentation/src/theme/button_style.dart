@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
+import 'package:portfolio_v2/presentation/src/theme/dimensions.dart';
+
+
+class AppButtonStyle extends ButtonStyle {
+
+  final BuildContext context;
+
+  @override
+  WidgetStateProperty<OutlinedBorder?>? get shape =>  WidgetStatePropertyAll(RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(Dimensions.buttonBorderRadius),
+    side: BorderSide(
+      color: context.appColorScheme.dividerColor,
+      width: 1
+    )
+  ));
+  
+  @override
+  WidgetStateProperty<EdgeInsetsGeometry?>? get padding => const WidgetStatePropertyAll(
+    EdgeInsets.symmetric(vertical: Dimensions.buttonVerticalPadding,horizontal: Dimensions.margin_32)
+  );
+
+
+
+  @override
+  WidgetStateProperty<Color?>? get foregroundColor => WidgetStatePropertyAll(context.appColorScheme.primaryText);
+
+  @override
+  WidgetStateProperty<Color?>? get backgroundColor => WidgetStatePropertyAll(context.appColorScheme.buttonColor);
+
+  const AppButtonStyle({
+    required this.context,
+  });
+}
+
+class AppTextButtonStyle extends ButtonStyle  {
+
+  final BuildContext context;
+
+
+  @override
+  WidgetStateProperty<Color?>? get foregroundColor => WidgetStatePropertyAll(context.appColorScheme.secondaryText);
+
+  const AppTextButtonStyle({
+    required this.context,
+  });
+}
+
+class AppAccentTextButtonStyle extends ButtonStyle {
+  final BuildContext context;
+
+
+  @override
+  WidgetStateProperty<Color?>? get foregroundColor => WidgetStatePropertyAll(context.appColorScheme.accentColor);
+
+  const AppAccentTextButtonStyle({
+    required this.context,
+  });
+}

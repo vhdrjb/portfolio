@@ -6,7 +6,7 @@ abstract class AppColorScheme extends ColorScheme {
 
   const AppColorScheme._light({super.secondary, super.surface}) : super.light();
 
-  const AppColorScheme._dark() : super.dark();
+  const AppColorScheme._dark({super.surface}) : super.dark();
 
   factory AppColorScheme.light() {
     _lightInstance ??= const _LightColorScheme();
@@ -18,78 +18,81 @@ abstract class AppColorScheme extends ColorScheme {
     return _darkInstance!;
   }
 
-  Color get headlineSecondaryColor;
+  Color get iconColor;
+  Color get primaryText;
+  Color get secondaryText;
+  Color get accentColor;
+  Color get loadingColor;
+  Color get buttonColor;
+  Color get dividerColor;
+  Color get headerColor;
 
-  Color get headlinePrimaryColor;
-
-  Color get profileBackgroundColor;
-
-  Color get homeInfoLabelColor;
-
-  Color get projectsBackgroundColor;
-
-  Color get projectsLabelColor;
-
-  Color get tagColor;
-
-  Color get tagTextColor;
+  Color get borderColor;
 }
 
 class _LightColorScheme extends AppColorScheme {
   const _LightColorScheme()
       : super._light(
             secondary: const Color(0xff69473F),
-            surface: const Color(0xffEFEFEF));
+            surface: const Color(0xff21262D));
 
   @override
-  Color get headlinePrimaryColor => const Color(0xff474340);
+  Color get iconColor => throw UnimplementedError();
 
   @override
-  Color get headlineSecondaryColor => const Color(0xffB9B9B9);
+  Color get primaryText => throw UnimplementedError();
 
   @override
-  Color get profileBackgroundColor => const Color(0xffD9D9D9);
+  Color get accentColor => throw UnimplementedError();
 
   @override
-  Color get homeInfoLabelColor => const Color(0xff63717F);
+  Color get loadingColor => throw UnimplementedError();
 
   @override
-  Color get projectsBackgroundColor => profileBackgroundColor;
+  Color get secondaryText => throw UnimplementedError();
 
   @override
-  Color get projectsLabelColor => Colors.white;
+  Color get buttonColor => throw UnimplementedError();
 
   @override
-  Color get tagColor => headlinePrimaryColor;
+  Color get dividerColor => throw UnimplementedError();
 
   @override
-  Color get tagTextColor => Colors.white;
+  Color get headerColor => throw UnimplementedError();
+
+  @override
+  Color get borderColor => throw UnimplementedError();
 }
 
 class _DarkColorScheme extends AppColorScheme {
-  const _DarkColorScheme() : super._dark();
+  const _DarkColorScheme() : super._dark(
+      surface: const Color(0xff21262D)
+  );
 
   @override
-  Color get headlinePrimaryColor => throw UnimplementedError();
+  Color get iconColor => const Color(0xffd9d9da);
+@override
+  Color get primaryText => const Color(0xffC9D1D9);
 
   @override
-  Color get headlineSecondaryColor => throw UnimplementedError();
+  Color get accentColor => const Color(0xffDC7D62);
 
   @override
-  Color get profileBackgroundColor => throw UnimplementedError();
+  Color get loadingColor => const Color(0xff8c8c8c);
 
   @override
-  Color get homeInfoLabelColor => throw UnimplementedError();
+  Color get secondaryText => const Color(0xff8B949E);
 
   @override
-  Color get projectsBackgroundColor => throw UnimplementedError();
+  Color get buttonColor => const Color(0xff2B303B);
 
   @override
-  Color get projectsLabelColor => throw UnimplementedError();
+  Color get dividerColor => const Color(0xff3E434C);
 
   @override
-  Color get tagColor => throw UnimplementedError();
+  Color get headerColor => const Color(0xff0D1117);
 
   @override
-  Color get tagTextColor => throw UnimplementedError();
+  Color get borderColor => const Color(0xff3E434C);
+
 }

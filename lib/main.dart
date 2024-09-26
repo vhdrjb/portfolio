@@ -1,11 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_v2/infrastructure/bootstrap/launcher.dart';
 import 'package:portfolio_v2/infrastructure/di/dependency_container.dart';
 import 'package:portfolio_v2/infrastructure/router/app_router.dart';
 import 'package:portfolio_v2/infrastructure/theme/app_theme.dart';
+
+import 'presentation/presentation.dart';
 
 void main() {
   launch(
@@ -31,14 +34,17 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Vahid Rajabi Portfolio',
-      routerDelegate: _router.routerDelegate,
-      routeInformationParser: _router.routeInformationParser,
-      theme: AppTheme.theme(brightness: Brightness.dark).themeData,
-      routeInformationProvider: _router.routeInformationProvider,
-      scrollBehavior: const MaterialScrollBehavior().copyWith(
-        dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch, PointerDeviceKind.stylus, PointerDeviceKind.unknown},
+    return ScreenUtilInit(
+      designSize: ResolutionConfig.instance.getDesignSize(context),
+      child: MaterialApp.router(
+        title: 'Vahid Rajabi Portfolio',
+        routerDelegate: _router.routerDelegate,
+        routeInformationParser: _router.routeInformationParser,
+        theme: AppTheme.theme(brightness: Brightness.dark).themeData,
+        routeInformationProvider: _router.routeInformationProvider,
+        scrollBehavior: const MaterialScrollBehavior().copyWith(
+          dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch, PointerDeviceKind.stylus, PointerDeviceKind.unknown},
+        ),
       ),
     );
   }
