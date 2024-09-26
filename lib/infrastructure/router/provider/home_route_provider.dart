@@ -14,7 +14,7 @@ class HomeRouteProvider extends BaseRoute<HomeBloc> {
   Widget provide(BuildContext context, GoRouterState state) {
     return BlocProvider(
       create: (context) => getBloc(state),
-      child: HomePage(),
+      child: ResponsivePageComponent(desktop: HomePage(), mobile: Container(), tablet: null),
     );
   }
 }

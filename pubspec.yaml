@@ -22,7 +22,11 @@ dependencies:
   flutter_bloc: ^8.1.6
   meta: any
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.10+1
   cached_network_image: ^3.4.1
+  loading_animation_widget: ^1.2.1
+  url_launcher: ^6.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -39,6 +43,8 @@ flutter:
   assets:
     - assets/images/gif/
     - assets/images/png/
+    - assets/images/svg/
+    - assets/images/jpg/
 #    - assets/l10n/
 #    - assets/images/png/
 #    - assets/images/jpg/
