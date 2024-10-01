@@ -14,3 +14,5 @@ class NavigateToOverviewEvent extends HomeEvent {
 class NavigateToServicesEvent extends HomeEvent {
 
 }
+
+class NavigateToCareerEvent extends HomeEvent {}

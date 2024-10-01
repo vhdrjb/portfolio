@@ -14,3 +14,8 @@ class NavigateToProjectsState extends MoveState implements HomeState {
 class NavigateToServicesState extends MoveState implements HomeState {
   NavigateToServicesState():super(path: Routes.services);
 }
+
+class NavigateToCareerState extends MoveState implements HomeState  {
+  NavigateToCareerState():super(path: Routes.careers);
+
+}

@@ -24,5 +24,8 @@ class HomeBloc extends AbstractBloc<HomeEvent, HomeState> {
         emit(NavigateToServicesState());
       },
     );
+    on<NavigateToCareerEvent>((event, emit) {
+      emit(NavigateToCareerState());
+    },);
   }
 }
