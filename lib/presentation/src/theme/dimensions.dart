@@ -9,10 +9,10 @@ abstract class Dimensions {
   static const double profileMinSize = 50;
   static const double homeDividerWidth =2;
   static const double homeDividerHeight = 58;
-  static const double projectBorders = 16;
+  static const double projectBorders = 6;
   static const double buttonBorderRadius = 6;
   static const double allProjectsBorder = 8;
-  static  double projectsHeight=  0.23.sw;
+  static  double projectsHeight=  160;
   static  double projectSummeryHeight=  0.2.sw +projectsHeight;
 
   // margins
@@ -47,4 +47,15 @@ abstract class Dimensions {
   static const double buttonVerticalPadding = 20;
 
   static const double highlightSize = 64;
+
+  static const double stackSize = 10;
+  static const double minServiceWidth = 200;
+  static const double maxServiceWidth = 288;
+
+  static const double serviceIconSize = 25;
+  static const double careerHeight = 120;
+  static const double maxCareerWidth = 350;
+
+  static const double careerBorder = 2;
+  static const double defaultBlinkSize = 20;
 }

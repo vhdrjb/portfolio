@@ -9,6 +9,8 @@
 .history
 .svn/
 migrate_working_dir/
+/lib/data/stub_datasource.dart
+macos/
 
 # IntelliJ related
 *.iml

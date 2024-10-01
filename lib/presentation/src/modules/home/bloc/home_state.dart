@@ -4,3 +4,13 @@ part of 'home_bloc.dart';
 abstract class HomeState {}
 
 class HomeInitial extends HomeState {}
+
+class NavigateToOverviewState extends MoveState implements HomeState {
+  NavigateToOverviewState():super(path: Routes.overview);
+}
+class NavigateToProjectsState extends MoveState implements HomeState {
+  NavigateToProjectsState():super(path: Routes.projects);
+}
+class NavigateToServicesState extends MoveState implements HomeState {
+  NavigateToServicesState():super(path: Routes.services);
+}

@@ -38,6 +38,13 @@ class HighlightComponent extends StatelessWidget {
               (e,i) => Padding(
                 padding: const EdgeInsets.all(Dimensions.margin_4),
                 child: Tooltip(
+                  textStyle: context.textTheme.bodySmall?.copyWith(
+                    color: context.appColorScheme.primaryText
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.projectBorders),
+                    color: context.appColorScheme.surface
+                  ),
                   margin: const EdgeInsets.only(top: Dimensions.margin_8),
                   message: highlights[i],
                     child: CachedNetworkImage(

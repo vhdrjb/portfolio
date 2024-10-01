@@ -26,8 +26,9 @@ abstract class AppColorScheme extends ColorScheme {
   Color get buttonColor;
   Color get dividerColor;
   Color get headerColor;
-
+  Color get linkColor;
   Color get borderColor;
+  Color get highlightColor;
 }
 
 class _LightColorScheme extends AppColorScheme {
@@ -62,6 +63,12 @@ class _LightColorScheme extends AppColorScheme {
 
   @override
   Color get borderColor => throw UnimplementedError();
+
+  @override
+  Color get linkColor => throw UnimplementedError();
+
+  @override
+  Color get highlightColor => throw UnimplementedError();
 }
 
 class _DarkColorScheme extends AppColorScheme {
@@ -94,5 +101,11 @@ class _DarkColorScheme extends AppColorScheme {
 
   @override
   Color get borderColor => const Color(0xff3E434C);
+
+  @override
+  Color get linkColor => const Color(0xff58A6FF);
+
+  @override
+  Color get highlightColor =>const Color(0xff0bb92b);
 
 }
