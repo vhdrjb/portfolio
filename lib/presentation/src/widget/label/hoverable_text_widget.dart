@@ -6,10 +6,11 @@ class HoverableTextWidget extends StatefulWidget {
   final String label;
   final String? url;
   final VoidCallback? onPress;
+  final Color? primaryColor;
   final TextStyle? style;
 
   const HoverableTextWidget(
-      {super.key, required this.label, this.url, this.onPress,this.style});
+      {super.key, required this.label, this.url, this.onPress,this.style,this.primaryColor});
 
   @override
   State<HoverableTextWidget> createState() => _HoverableTextWidgetState();
@@ -47,7 +48,9 @@ class _HoverableTextWidgetState extends State<HoverableTextWidget> {
           widget.label,
           style: (widget.style ??context.textTheme.titleMedium)?.copyWith(
             color:
-                _isHovered ? Colors.blue : context.appColorScheme.primaryText,
+                _isHovered ? context.appColorScheme.linkColor : widget.primaryColor ?? context.appColorScheme.primaryText,
+            decorationColor: context.appColorScheme.linkColor,
+            decorationThickness: 2,
             decoration:
                 _isHovered ? TextDecoration.underline : TextDecoration.none,
           ),
