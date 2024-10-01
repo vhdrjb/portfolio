@@ -59,7 +59,7 @@ class ProjectOverviewWidget extends StatelessWidget {
           ),
           Dimensions.marginVertical_16,
           LanguageWidget(
-            stack: project.stacks.first,
+            stack: project.stack,
           )
         ],
       ),

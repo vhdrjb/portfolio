@@ -58,4 +58,5 @@ abstract class Dimensions {
 
   static const double careerBorder = 2;
   static const double defaultBlinkSize = 20;
+  static const double tagsBorderRadius=200;
 }
