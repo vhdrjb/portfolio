@@ -13,10 +13,16 @@ class HomeRouteProvider extends BaseNestedRoute<HomeBloc> {
   }
 
   @override
-  Widget provide(BuildContext context, GoRouterState state,Widget child) {
+  Widget provide(BuildContext context, GoRouterState state, Widget child) {
     return BlocProvider(
       create: (context) => getBloc(state),
-      child: ResponsivePageComponent(desktop: HomePage(child: child), mobile: Container(), tablet: null),
+      child: ResponsivePageComponent(
+        desktop: HomePage(
+          child: child,
+        ),
+        mobile: Container(),
+        tablet: null,
+      ),
     );
   }
 }
