@@ -16,6 +16,7 @@ class ProfileComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('profile build');
     return SizedBox(
       width: Dimensions.profileWebWidth,
       child: Column(

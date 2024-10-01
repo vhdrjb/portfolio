@@ -26,9 +26,9 @@ class _PageState extends PageState<HomeBloc>
   void initState() {
     super.initState();
     _tabController = TabController(
-        length: 3,
+        length: 4,
         vsync: this,
-        animationDuration: const Duration(milliseconds: 50));
+        animationDuration: const Duration(milliseconds: 500));
     _routeStrategy = const HomeRouteStrategy();
   }
 
@@ -93,6 +93,12 @@ class _PageState extends PageState<HomeBloc>
                                       iconPath: 'service'.toSvg,
                                     ),
                                   ),
+                                  Tab(
+                                    child: TabWidget(
+                                      label: 'Career',
+                                      iconPath: 'career'.toSvg,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -108,15 +114,19 @@ class _PageState extends PageState<HomeBloc>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const ProfileComponent(),
+                      const Flexible(
+                        child: ProfileComponent(),
+                      ),
                       Dimensions.marginHorizontal_32,
-                      Flexible(
-                        child: Container(
-                          constraints: const BoxConstraints(
+                      Expanded(
+                        child: Center(
+                          child: Container(
+                            constraints: const BoxConstraints(
                               minWidth: Dimensions.homeContentWebMinWidth,
                               maxWidth: Dimensions.homeContentWebMaxWidth,
-                              ),
-                          child: parentWidget.child,
+                            ),
+                            child: parentWidget.child,
+                          ),
                         ),
                       ),
                     ],

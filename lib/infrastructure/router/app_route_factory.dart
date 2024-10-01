@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 import 'package:go_router/src/state.dart';
 import 'package:injectable/injectable.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/home_route_provider.dart';
@@ -7,6 +9,8 @@ import 'package:portfolio_v2/infrastructure/router/provider/projects_route_provi
 import 'package:portfolio_v2/infrastructure/router/provider/services_route_provider.dart';
 import 'package:portfolio_v2/presentation/presentation.dart';
 
+import '../../presentation/src/theme/dimensions.dart';
+
 @LazySingleton()
 class AppRouteFactory {
   final HomeRouteProvider _homeRouteProvider;
@@ -14,18 +18,35 @@ class AppRouteFactory {
   final ProjectsRouteProvider _projectsRouteProvider;
   final ServiceRouteProvider _serviceRouteProvider;
 
-  Widget create(BuildContext context, GoRouterState state) {
+  CustomTransitionPage create(BuildContext context, GoRouterState state) {
     final String path = state.path ?? '/';
     if (path == Routes.projects) {
-      return _projectsRouteProvider.provide(context, state);
+      return _providePage(
+          _projectsRouteProvider.provide(context, state), state);
     }
     if (path == Routes.overview) {
-      return _overviewRouteProvider.provide(context, state);
+      return _providePage(
+          _overviewRouteProvider.provide(context, state), state);
     }
     if (path == Routes.services) {
-      return _serviceRouteProvider.provide(context, state);
+      return _providePage(_serviceRouteProvider.provide(context, state), state);
     }
     throw 'page not found';
+  }
+
+  CustomTransitionPage _providePage(Widget page, GoRouterState state) {
+    return CustomTransitionPage(
+      child: SizedBox(
+        width: Dimensions.homeContentWebMaxWidth,
+          child: page),
+      transitionDuration: const Duration(milliseconds: 100),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: CurveTween(curve: Curves.easeIn).animate(animation),
+          child: child,
+        );
+      },
+    );
   }
 
   Widget createNested(BuildContext context, GoRouterState state, Widget child) {

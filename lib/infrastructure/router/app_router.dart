@@ -31,9 +31,9 @@ class AppRouter {
             navigatorKey: _shellNavigatorKey,
             builder: _routeFactory.createNested,
             routes: [
-              GoRoute(path: Routes.overview,builder: _routeFactory.create),
-              GoRoute(path: Routes.projects,builder: _routeFactory.create),
-              GoRoute(path: Routes.services,builder: _routeFactory.create)
+              GoRoute(path: Routes.overview,pageBuilder:_routeFactory.create),
+              GoRoute(path: Routes.projects,pageBuilder: _routeFactory.create),
+              GoRoute(path: Routes.services,pageBuilder: _routeFactory.create)
             ],
           )
         ],

@@ -36,7 +36,7 @@ class ProjectWidget extends StatelessWidget {
                 ),
                 Dimensions.marginVertical_16,
                 Text(
-                  project.description ?? '',
+                  project.about ?? '',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: context.textTheme.bodyMedium

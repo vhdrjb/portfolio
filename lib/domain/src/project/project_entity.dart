@@ -6,11 +6,13 @@ class ProjectEntity implements Entity {
   final String name;
   final CompanyEntity? collaborateWith;
   final String? description;
+  final String? about;
   final StackEntity stack;
   final List<String>? tags;
 
   const ProjectEntity({
     required this.name,
+    this.about,
     this.collaborateWith,
     this.description,
     required this.stack,
