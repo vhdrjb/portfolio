@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_router/src/state.dart';
 import 'package:injectable/injectable.dart';
+import 'package:portfolio_v2/infrastructure/router/provider/career_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/home_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/overview_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/projects_route_provider.dart';
@@ -17,6 +16,7 @@ class AppRouteFactory {
   final OverviewRouteProvider _overviewRouteProvider;
   final ProjectsRouteProvider _projectsRouteProvider;
   final ServiceRouteProvider _serviceRouteProvider;
+  final CareerRouteProvider _careerRouteProvider;
 
   CustomTransitionPage create(BuildContext context, GoRouterState state) {
     final String path = state.path ?? '/';
@@ -30,6 +30,9 @@ class AppRouteFactory {
     }
     if (path == Routes.services) {
       return _providePage(_serviceRouteProvider.provide(context, state), state);
+    }
+    if (path == Routes.careers) {
+      return _providePage(_careerRouteProvider.provide(context, state), state);
     }
     throw 'page not found';
   }
@@ -58,8 +61,10 @@ class AppRouteFactory {
     required OverviewRouteProvider overviewRouteProvider,
     required ProjectsRouteProvider projectsRouteProvider,
     required ServiceRouteProvider serviceRouteProvider,
+    required CareerRouteProvider careerRouteProvider,
   })  : _homeRouteProvider = homeRouteProvider,
         _overviewRouteProvider = overviewRouteProvider,
         _projectsRouteProvider = projectsRouteProvider,
-        _serviceRouteProvider = serviceRouteProvider;
+        _serviceRouteProvider = serviceRouteProvider,
+        _careerRouteProvider = careerRouteProvider;
 }

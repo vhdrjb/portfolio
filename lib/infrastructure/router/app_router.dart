@@ -33,7 +33,8 @@ class AppRouter {
             routes: [
               GoRoute(path: Routes.overview,pageBuilder:_routeFactory.create),
               GoRoute(path: Routes.projects,pageBuilder: _routeFactory.create),
-              GoRoute(path: Routes.services,pageBuilder: _routeFactory.create)
+              GoRoute(path: Routes.services,pageBuilder: _routeFactory.create),
+              GoRoute(path: Routes.careers,pageBuilder: _routeFactory.create)
             ],
           )
         ],

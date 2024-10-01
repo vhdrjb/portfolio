@@ -11,6 +11,8 @@ class HomeRouteStrategy {
       bloc.add(NavigateToProjectsEvent());
     }else if (index == 2) {
       bloc.add(NavigateToServicesEvent());
+    }else if (index == 3) {
+      bloc.add(NavigateToCareerEvent());
     }
   }
 
