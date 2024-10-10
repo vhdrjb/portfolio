@@ -5,4 +5,4 @@ targets:
         options:
           auto_register: true
           class_name_pattern:
-            "Bloc$|Provider$"
+            "Bloc$|Provider$|Usecase$|Repository$"

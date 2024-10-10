@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_v2/data/stub_datasource.dart';
 import 'package:portfolio_v2/presentation/src/base/page/base_page.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/modules/overview/bloc/overview_bloc.dart';
 import 'package:portfolio_v2/presentation/src/modules/overview/components/last_careers_component.dart';
 import 'package:portfolio_v2/presentation/src/theme/dimensions.dart';
-import 'package:portfolio_v2/presentation/src/widget/project/project_overview_widget.dart';
 
 import 'components/favorite_projects_component.dart';
 import 'components/services_components.dart';
@@ -20,6 +18,15 @@ class OverviewPage extends BasePage<OverviewBloc> {
 }
 
 class _OverviewState extends PageState<OverviewBloc> {
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(FindFavoriteProjectsEvent());
+    bloc.add(FindOverviewServiceEvent());
+    bloc.add(FindLastCareerEvent());
+  }
+
   @override
   Widget buildScreen(BuildContext context) {
     return SingleChildScrollView(

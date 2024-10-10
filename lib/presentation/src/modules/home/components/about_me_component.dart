@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_v2/domain/src/base/text/styled_text.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/theme/dimensions.dart';
 import 'package:portfolio_v2/presentation/src/widget/dialog/rounded_wrapped_dialog.dart';
-import 'package:portfolio_v2/presentation/src/widget/label/hoverable_text_widget.dart';
+import 'package:portfolio_v2/presentation/src/widget/text/styled_text_widget.dart';
 
 import '../../../theme/button_style.dart';
+import '../../../widget/text/hoverable_text_widget.dart';
 
 class AboutMeComponent extends StatelessWidget {
-  const AboutMeComponent({super.key});
+  final Iterable<StyledText> about;
+
+  const AboutMeComponent({super.key, required this.about});
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +32,8 @@ class AboutMeComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: Text(
-                '''
-        As a Senior Software Engineer with over 10 years of experience in mobile development, including freelance and contract work, I excel in creating clean, maintainable, and scalable code. I am passionate about problem-solving and stay updated with emerging technologies to enhance project outcomes. My expertise in refactoring and architecting using clean architecture ensures efficient and maintainable code, while my passion for mentoring junior developers fosters a culture of knowledge sharing within the team. I thrive on creating innovative user interactions based on feedback, helping teams deliver exceptional products that enhance user satisfaction.
-        '''
-                    .trimLeft(),
+              child: StyledTextWidget(
+                texts: about,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: context.textTheme.bodyMedium
@@ -50,23 +51,21 @@ class AboutMeComponent extends StatelessWidget {
                       context.appColorScheme.headerColor.withOpacity(0.8),
                   builder: (context) {
                     return RoundedWrappedDialog(
-                        buttons: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.maybePop(context);
-                            },
-                            child: Text('OK'),
-                            style: AppAccentTextButtonStyle(context: context),
-                          )
-                        ],
-                        content: Text(
-                          '''
-                          As a Senior Software Engineer with over 10 years of experience in mobile development, including freelance and contract work, I excel in creating clean, maintainable, and scalable code. I am passionate about problem-solving and stay updated with emerging technologies to enhance project outcomes. My expertise in refactoring and architecting using clean architecture ensures efficient and maintainable code, while my passion for mentoring junior developers fosters a culture of knowledge sharing within the team. I thrive on creating innovative user interactions based on feedback, helping teams deliver exceptional products that enhance user satisfaction.
-                  '''
-                              .trimLeft(),
-                          style: context.textTheme.bodyMedium?.copyWith(
-                              color: context.appColorScheme.primaryText),
-                        ));
+                      buttons: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.maybePop(context);
+                          },
+                          style: AppAccentTextButtonStyle(context: context),
+                          child: const Text('OK'),
+                        )
+                      ],
+                      content: StyledTextWidget(
+                        texts: about,
+                        style: context.textTheme.bodyMedium?.copyWith(
+                            color: context.appColorScheme.primaryText),
+                      ),
+                    );
                   },
                 );
               },
@@ -77,3 +76,5 @@ class AboutMeComponent extends StatelessWidget {
     );
   }
 }
+
+// user/user_profile/user.jpg

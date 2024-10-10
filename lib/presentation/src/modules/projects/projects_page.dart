@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_v2/data/stub_datasource.dart';
-import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
-import 'package:portfolio_v2/presentation/src/widget/project/project_widget.dart';
 import 'bloc/projects_bloc.dart';
 import '../../base/page/base_page.dart';
+import 'component/project_component.dart';
 
 class ProjectsPage extends BasePage<ProjectsBloc> {
   const ProjectsPage({super.key});
@@ -15,12 +13,14 @@ class ProjectsPage extends BasePage<ProjectsBloc> {
 }
 
 class _ProjectsState extends PageState<ProjectsBloc> {
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(FindAllProjectsEvent());
+  }
   @override
   Widget buildScreen(BuildContext context) {
-    return ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (context, index) => ProjectWidget(project: projects[index]),
-        separatorBuilder: (context, index) => Divider(color: context.appColorScheme.dividerColor,),
-        itemCount: projects.length);
+    return const ProjectComponent();
   }
 }

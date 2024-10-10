@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio_v2/domain/src/career/career_entity.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/extensions/datetime_extensions.dart';
 import 'package:portfolio_v2/presentation/src/theme/dimensions.dart';
 
-import '../label/blinking_label_widget.dart';
+import '../text/blinking_label_widget.dart';
 
 class CareerOverviewWidget extends StatelessWidget {
   final CareerEntity career;
@@ -46,30 +44,47 @@ class CareerOverviewWidget extends StatelessWidget {
           Row(
             children: [
               Flexible(
-                child: Text(
-                  career.start.display,
-                  style: context.textTheme.bodyMedium
-                      ?.copyWith(color: context.appColorScheme.secondaryText),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    career.start.display,
+                    style: context.textTheme.bodyMedium
+                        ?.copyWith(color: context.appColorScheme.secondaryText),
+                  ),
                 ),
               ),
               Dimensions.marginHorizontal_8,
-              Text('-',style: context.textTheme.titleMedium?.copyWith( color: context.appColorScheme.secondaryText),),
+              Text(
+                '-',
+                style: context.textTheme.titleMedium
+                    ?.copyWith(color: context.appColorScheme.secondaryText),
+              ),
               Dimensions.marginHorizontal_8,
-               career.end ==null ?
-                const Flexible(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Flexible(child: BlinkingLabelWidget(label: 'Present',)),
-                    ],
-                  ),
-                ) :  Flexible(
-                 child: Text(
-                   career.end!.display,
-                   style: context.textTheme.bodyMedium
-                       ?.copyWith(color: context.appColorScheme.secondaryText),
-                 ),
-               ),
+              career.end == null
+                  ? const Flexible(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Flexible(
+                              child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: BlinkingLabelWidget(
+                              label: 'Present',
+                            ),
+                          )),
+                        ],
+                      ),
+                    )
+                  : Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          career.end!.display,
+                          style: context.textTheme.bodyMedium?.copyWith(
+                              color: context.appColorScheme.secondaryText),
+                        ),
+                      ),
+                    ),
             ],
           )
         ],

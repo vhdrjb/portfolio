@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_v2/domain/src/tag/tag_entity.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/theme/dimensions.dart';
 
 import 'tag_widget.dart';
 
 class ProjectTagsWidget extends StatelessWidget {
-  final List<String> tags;
+  final Iterable<TagEntity> tags;
 
   const ProjectTagsWidget({super.key, required this.tags});
 
@@ -17,7 +18,7 @@ class ProjectTagsWidget extends StatelessWidget {
         double usedWidth = 0;
         List<Widget> visibleTags = [];
         for (var tag in tags) {
-          final tagWidget = TagWidget(tag: tag);
+          final tagWidget = TagWidget(tag: tag.name);
           final tagWidth = _measureWidgetWidth(context, tagWidget);
           if (usedWidth + tagWidth <= availableWidth) {
             visibleTags.add(tagWidget);

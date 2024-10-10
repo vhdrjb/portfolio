@@ -29,4 +29,8 @@ extension DatetimeExtensions on DateTime {
     return date.yMMM;
   }
 
+  int get yearsToNow {
+    return Jiffy.parseFromDateTime(DateTime.now()).diff(Jiffy.parseFromDateTime(this),unit: Unit.year).toInt();
+  }
+
 }

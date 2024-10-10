@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // import 'dart:html' as html;
 
 extension StringExtensions on String {
@@ -29,5 +32,14 @@ extension StringExtensions on String {
   Color get hexToColor {
     final String hexString = replaceFirst('#', '0xff');
     return Color(int.parse(hexString));
+  }
+
+  String get toLinkedin {
+    int index = max(indexOf('com/in/'),0);
+    return substring(index+4);
+  }
+
+  String get toSupaBaseUrl {
+    return '${dotenv.env['SERVER_URL']!}/storage/v1/object/public/$this';
   }
 }

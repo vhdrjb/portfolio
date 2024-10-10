@@ -30,18 +30,22 @@ class ServiceWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CachedNetworkImage(
-                  imageUrl: service.icon.toPngImageUrl,
+                  imageUrl: service.icon!.toSupaBaseUrl,
+                  color: context.appColorScheme.secondaryText,
                   height: Dimensions.serviceIconSize,
                   width: Dimensions.serviceIconSize,
                   fit: BoxFit.cover,
                 ),
                 Dimensions.marginHorizontal_8,
                 Flexible(
-                  child: Text(
-                    service.name,
-                    maxLines: 1,
-                    style: context.textTheme.titleLarge
-                        ?.copyWith(color: context.appColorScheme.primaryText),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      service.name,
+                      maxLines: 1,
+                      style: context.textTheme.titleMedium
+                          ?.copyWith(color: context.appColorScheme.primaryText),
+                    ),
                   ),
                 )
               ],

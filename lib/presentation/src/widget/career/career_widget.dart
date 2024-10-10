@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_v2/domain/src/career/career_entity.dart';
-import 'package:portfolio_v2/domain/src/project/project_entity.dart';
+import 'package:portfolio_v2/domain/src/tag/tag_entity.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/extensions/datetime_extensions.dart';
 
 import '../../theme/dimensions.dart';
-import '../label/blinking_label_widget.dart';
 import '../tag/project_tags_widget.dart';
+import '../text/blinking_label_widget.dart';
 
 class CareerWidget extends StatelessWidget {
   final CareerEntity career;
-  final List<String>? projects;
 
-  const CareerWidget({super.key, required this.career, this.projects});
+  const CareerWidget({super.key, required this.career});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +30,6 @@ class CareerWidget extends StatelessWidget {
                       color: context.appColorScheme.primaryText,
                       fontWeight: FontWeight.w600),
                 ),
-                Dimensions.marginVertical_16,
-                if (projects != null) ProjectTagsWidget(tags: projects!),
                 Dimensions.marginVertical_16,
                 Text(
                   career.company.name,
@@ -82,9 +79,8 @@ class CareerWidget extends StatelessWidget {
               ),
               Text(
                 career.start.relativeDuration(career.end ?? DateTime.now()),
-                style: context.textTheme.titleSmall?.copyWith(
-                  color: context.appColorScheme.secondaryText
-                ),
+                style: context.textTheme.titleSmall
+                    ?.copyWith(color: context.appColorScheme.secondaryText),
               )
             ],
           )
