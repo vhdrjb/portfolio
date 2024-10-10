@@ -4,6 +4,7 @@ abstract class AppColorScheme extends ColorScheme {
   static AppColorScheme? _darkInstance;
   static AppColorScheme? _lightInstance;
 
+
   const AppColorScheme._light({super.secondary, super.surface}) : super.light();
 
   const AppColorScheme._dark({super.surface}) : super.dark();
@@ -29,6 +30,9 @@ abstract class AppColorScheme extends ColorScheme {
   Color get linkColor;
   Color get borderColor;
   Color get highlightColor;
+  Color get shimmerColor;
+  Color get placeHolderColor;
+  Color get shimmerBaseColor;
 }
 
 class _LightColorScheme extends AppColorScheme {
@@ -69,6 +73,15 @@ class _LightColorScheme extends AppColorScheme {
 
   @override
   Color get highlightColor => throw UnimplementedError();
+
+  @override
+  Color get placeHolderColor => throw UnimplementedError();
+
+  @override
+  Color get shimmerColor => throw UnimplementedError();
+
+  @override
+  Color get shimmerBaseColor => throw UnimplementedError();
 }
 
 class _DarkColorScheme extends AppColorScheme {
@@ -107,5 +120,16 @@ class _DarkColorScheme extends AppColorScheme {
 
   @override
   Color get highlightColor =>const Color(0xff0bb92b);
+
+  @override
+  Color get placeHolderColor => const Color(0xff3d444f);
+
+  @override
+  Color get shimmerColor => const Color(0xff0D1117);
+
+  @override
+  Color get shimmerBaseColor => const Color(0xff22272e);
+
+
 
 }

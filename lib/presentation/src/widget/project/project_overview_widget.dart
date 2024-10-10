@@ -58,9 +58,9 @@ class ProjectOverviewWidget extends StatelessWidget {
                 ?.copyWith(color: context.appColorScheme.secondaryText),
           ),
           Dimensions.marginVertical_16,
-          LanguageWidget(
-            stack: project.stack,
-          )
+          // LanguageWidget(
+          //   stack: project.stack,
+          // )
         ],
       ),
     );

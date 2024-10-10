@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Service A",
+    "icon_file_name": "service_a.svg",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "available": true
+  },
+  {
+    "name": "Service A",
+    "icon_file_name": "service_a.svg",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "available": true
+  },
+  {
+    "name": "Service A",
+    "icon_file_name": "service_a.svg",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "available": true
+  },
+  {
+    "name": "Service A",
+    "icon_file_name": "service_a.svg",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "available": true
+  },
+  {
+    "name": "Service A",
+    "icon_file_name": "service_a.svg",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "available": true
+  },
+  {
+    "name": "Service A",
+    "icon_file_name": "service_a.svg",
+    "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "available": true
+  }
+]

@@ -3,6 +3,7 @@ import 'package:portfolio_v2/data/stub_datasource.dart';
 import 'package:portfolio_v2/presentation/src/base/page/base_page.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/modules/career/bloc/career_bloc.dart';
+import 'package:portfolio_v2/presentation/src/modules/career/component/career_component.dart';
 import 'package:portfolio_v2/presentation/src/widget/career/career_widget.dart';
 
 class CareerPage extends BasePage<CareerBloc> {
@@ -15,14 +16,15 @@ class CareerPage extends BasePage<CareerBloc> {
 }
 
 class _CareerState extends PageState<CareerBloc> {
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(FindAllCareerEvent());
+  }
+
   @override
   Widget buildScreen(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-        itemBuilder: (context, index) => CareerWidget(career: careers[index],projects: ['sample','testing','coding','mobile application','testing application mobile','test'],),
-        separatorBuilder: (_, i) => Divider(
-              color: context.appColorScheme.dividerColor,
-            ),
-        itemCount: careers.length);
+   return const CareerComponent();
   }
 }

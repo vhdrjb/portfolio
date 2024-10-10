@@ -5,8 +5,11 @@ import 'package:portfolio_v2/presentation/src/modules/services/bloc/services_blo
 import '../../../../data/stub_datasource.dart';
 import '../../theme/dimensions.dart';
 import '../../widget/services/service_widget.dart';
+import 'component/services_component.dart';
 
 class ServicesPage extends BasePage<ServicesBloc> {
+  const ServicesPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ServicesState();
@@ -14,19 +17,15 @@ class ServicesPage extends BasePage<ServicesBloc> {
 }
 
 class _ServicesState extends PageState<ServicesBloc> {
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(FindAllServicesEvent());
+  }
   @override
   Widget buildScreen(BuildContext context) {
-    return GridView.builder(
-      itemCount: services.length,
-      shrinkWrap: true,
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          mainAxisExtent: Dimensions.minServiceWidth,
-          childAspectRatio: 1,
-          mainAxisSpacing: Dimensions.margin_16,
-          crossAxisSpacing: Dimensions.margin_16,
-          maxCrossAxisExtent: Dimensions.maxServiceWidth),
-      itemBuilder: (context, index) => ServiceWidget(service: services[index]),
-    );
+    return const ServicesComponent();
   }
 
 }

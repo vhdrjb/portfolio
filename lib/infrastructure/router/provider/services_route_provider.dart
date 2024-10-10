@@ -4,12 +4,15 @@ import 'package:go_router/src/state.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/base_route.dart';
 import 'package:portfolio_v2/presentation/src/modules/services/services_page.dart';
 
+import '../../../domain/src/service/find/find_all_service_usecase.dart';
 import '../../../presentation/src/modules/services/bloc/services_bloc.dart';
 
 class ServiceRouteProvider extends BaseRoute<ServicesBloc> {
+  final FindAllServiceUsecase findAllServiceUsecase;
+
   @override
   ServicesBloc buildBloc() {
-    return ServicesBloc();
+    return ServicesBloc(findAllServiceUsecase: findAllServiceUsecase);
   }
 
   @override
@@ -20,4 +23,7 @@ class ServiceRouteProvider extends BaseRoute<ServicesBloc> {
     );
   }
 
+  ServiceRouteProvider({
+    required this.findAllServiceUsecase,
+  });
 }

@@ -13,6 +13,7 @@ final _getIt = GetIt.instance;
 )
 Future<void> configureDependencies() async {
   _getIt.init();
+
 }
 
 AppRouter get router => _getIt.get<AppRouter>();

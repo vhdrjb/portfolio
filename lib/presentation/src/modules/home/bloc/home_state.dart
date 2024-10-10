@@ -1,7 +1,9 @@
 part of 'home_bloc.dart';
 
 @immutable
-abstract class HomeState {}
+abstract class HomeState {
+  const HomeState();
+}
 
 class HomeInitial extends HomeState {}
 
@@ -17,5 +19,4 @@ class NavigateToServicesState extends MoveState implements HomeState {
 
 class NavigateToCareerState extends MoveState implements HomeState  {
   NavigateToCareerState():super(path: Routes.careers);
-
 }

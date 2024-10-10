@@ -27,7 +27,12 @@ dependencies:
   cached_network_image: ^3.4.1
   loading_animation_widget: ^1.2.1
   url_launcher: ^6.3.0
-
+  supabase_flutter: ^2.7.0
+  flutter_dotenv: ^5.1.0
+  widget_component_annotation: ^1.0.1
+  bloc_concurrency: ^0.2.5
+  bloc_test: ^9.1.7
+  shimmer: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -37,11 +42,14 @@ dev_dependencies:
   freezed: ^2.5.7
   json_serializable: ^6.8.0
   bloc_test: ^9.1.7
+  widget_component:
+    path: ../../package/widget_component/widget_component
 flutter:
   uses-material-design: true
 
 
   assets:
+    - .env
     - assets/images/gif/
     - assets/images/png/
     - assets/images/svg/

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:portfolio_v2/presentation/src/modules/home/components/profile/web/profile_web_component.dart';
+import '../../config/routes.dart';
 import '../../extensions/context_extensions.dart';
 import '../../extensions/string_extensions.dart';
-import 'components/profile_web_component.dart';
+import 'components/profile/web/profile_web_loading_widget.dart';
 import '../../theme/dimensions.dart';
 import '../../base/page/base_page.dart';
 import '../../widget/tab/tab_widget.dart';
@@ -10,8 +13,9 @@ import 'home_route_strategy.dart';
 
 class HomePage extends BasePage<HomeBloc> {
   final Widget child;
+  final String? path;
 
-  const HomePage({super.key, required this.child});
+  const HomePage({super.key, required this.child, required this.path});
 
   @override
   State<StatefulWidget> createState() => _PageState();
@@ -30,6 +34,7 @@ class _PageState extends PageState<HomeBloc>
         vsync: this,
         animationDuration: const Duration(milliseconds: 500));
     _routeStrategy = const HomeRouteStrategy();
+    bloc.add(GetUserInfoEvent());
   }
 
   HomePage get parentWidget {
@@ -38,6 +43,7 @@ class _PageState extends PageState<HomeBloc>
 
   @override
   Widget buildScreen(BuildContext context) {
+    _updateIndex();
     return Scaffold(
         backgroundColor: context.appColorScheme.surface,
         body: ScrollConfiguration(
@@ -115,7 +121,7 @@ class _PageState extends PageState<HomeBloc>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Flexible(
-                        child: ProfileComponent(),
+                        child: ProfileWebComponent(),
                       ),
                       Dimensions.marginHorizontal_32,
                       Expanded(
@@ -136,5 +142,39 @@ class _PageState extends PageState<HomeBloc>
             ),
           ),
         ));
+  }
+
+  void _updateIndex() {
+    debugPrint(parentWidget.path);
+    switch (parentWidget.path) {
+      case Routes.services:
+        {
+          if (_tabController.index != 2) {
+            _tabController.animateTo(2);
+          }
+        }
+      case Routes.overview:
+        {
+          if (_tabController.index !=0) {
+            _tabController.animateTo(0);
+          }
+        }
+      case Routes.projects:
+        {
+          if (_tabController.index !=1 ) {
+            _tabController.animateTo(1);
+          }
+        }
+      case Routes.careers:
+        if (_tabController.index != 3) {
+          _tabController.animateTo(3);
+        }
+      case _:
+        {
+          if (_tabController.index !=0) {
+            _tabController.animateTo(0);
+          }
+        }
+    }
   }
 }
