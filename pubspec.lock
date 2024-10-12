@@ -1341,10 +1341,11 @@ packages:
   widget_component:
     dependency: "direct dev"
     description:
-      path: "../../package/widget_component/widget_component"
-      relative: true
-    source: path
-    version: "1.0.3"
+      name: widget_component
+      sha256: "3e4fbca4465bf1966552ffd899cf8f78d13b1b1b7a1769a6730df90445fc6c88"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   widget_component_annotation:
     dependency: "direct main"
     description:
