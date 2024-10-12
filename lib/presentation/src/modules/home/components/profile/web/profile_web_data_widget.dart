@@ -9,6 +9,7 @@ import 'package:portfolio_v2/presentation/src/extensions/string_extensions.dart'
 import 'package:portfolio_v2/presentation/src/modules/home/components/about_me_component.dart';
 import 'package:portfolio_v2/presentation/src/modules/home/components/highlight_component.dart';
 import 'package:portfolio_v2/presentation/src/widget/text/icon_label_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../theme/button_style.dart';
 import '../../../../../theme/dimensions.dart';
@@ -82,7 +83,9 @@ class ProfileWebDataWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: Dimensions.margin_16),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                   launchUrl(Uri.parse(user.bookingUrl!));
+                },
                 style: AppButtonStyle(context: context),
                 child: const Text('Book appointment '),
               ),

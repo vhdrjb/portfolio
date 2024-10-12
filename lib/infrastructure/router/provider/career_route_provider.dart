@@ -19,7 +19,7 @@ class CareerRouteProvider extends BaseRoute<CareerBloc> {
   @override
   Widget provide(BuildContext context, GoRouterState state) {
     return BlocProvider(
-      create: (context) => buildBloc(),
+      create: (context) => getBloc(state),
       child: const CareerPage(),
     );
   }

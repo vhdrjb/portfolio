@@ -1,6 +1,6 @@
 import 'package:portfolio_v2/data/src/base/base_entity_mapper.dart';
 import 'package:portfolio_v2/data/src/repository/career/career_dto.dart';
-import 'package:portfolio_v2/data/src/repository/company/compnay_entity_mapper.dart';
+import 'package:portfolio_v2/data/src/repository/company/company_entity_mapper.dart';
 import 'package:portfolio_v2/domain/src/career/career_entity.dart';
 
 class CareerEntityMapper extends BaseEntityMapper<CareerDto, CareerEntity> {

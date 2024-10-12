@@ -36,7 +36,8 @@ class AppRouter {
               GoRoute(path: Routes.services,pageBuilder: _routeFactory.create),
               GoRoute(path: Routes.careers,pageBuilder: _routeFactory.create)
             ],
-          )
+          ),
+          GoRoute(path: Routes.projectDetail,pageBuilder: _routeFactory.create)
         ],
       );
       goRouter = _goRouter!;

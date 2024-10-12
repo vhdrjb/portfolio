@@ -34,5 +34,7 @@ class ProjectsBloc extends AbstractBloc<ProjectsEvent, ProjectsState> {
       },
       transformer: droppable(),
     );
+
+
   }
 }

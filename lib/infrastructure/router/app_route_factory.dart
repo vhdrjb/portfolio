@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/career_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/home_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/overview_route_provider.dart';
+import 'package:portfolio_v2/infrastructure/router/provider/project_detail_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/projects_route_provider.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/services_route_provider.dart';
 import 'package:portfolio_v2/presentation/presentation.dart';
@@ -17,7 +18,7 @@ class AppRouteFactory {
   final ProjectsRouteProvider _projectsRouteProvider;
   final ServiceRouteProvider _serviceRouteProvider;
   final CareerRouteProvider _careerRouteProvider;
-
+  final ProjectDetailRouteProvider _projectDetailRouteProvider;
   CustomTransitionPage create(BuildContext context, GoRouterState state) {
     final String path = state.path ?? '/';
     if (path == Routes.projects) {
@@ -34,6 +35,9 @@ class AppRouteFactory {
     if (path == Routes.careers) {
       return _providePage(_careerRouteProvider.provide(context, state), state);
     }
+     if (path == Routes.projectDetail) {
+       return _providePage(_projectDetailRouteProvider.provide(context, state), state);
+     }
     throw 'page not found';
   }
 
@@ -62,9 +66,11 @@ class AppRouteFactory {
     required ProjectsRouteProvider projectsRouteProvider,
     required ServiceRouteProvider serviceRouteProvider,
     required CareerRouteProvider careerRouteProvider,
+    required ProjectDetailRouteProvider projectDetailRouteProvider,
   })  : _homeRouteProvider = homeRouteProvider,
         _overviewRouteProvider = overviewRouteProvider,
         _projectsRouteProvider = projectsRouteProvider,
         _serviceRouteProvider = serviceRouteProvider,
-        _careerRouteProvider = careerRouteProvider;
+        _careerRouteProvider = careerRouteProvider,
+        _projectDetailRouteProvider = projectDetailRouteProvider;
 }
