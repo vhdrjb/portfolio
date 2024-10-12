@@ -1,26 +1,23 @@
-import 'package:portfolio_v2/data/src/base/base_entity_mapper.dart';
-import 'package:portfolio_v2/data/src/repository/company/company_entity_mapper.dart';
+import 'package:portfolio_v2/data/src/repository/project/dto/project_dto.dart';
 import 'package:portfolio_v2/data/src/repository/project/mapper/stack_entity_mapper.dart';
 import 'package:portfolio_v2/data/src/repository/project/mapper/tag_entity_mapper.dart';
-import 'package:portfolio_v2/domain/src/constants/stack_entity.dart';
-import 'package:portfolio_v2/domain/src/project/project_entity.dart';
+import 'package:portfolio_v2/domain/src/project/project_wrapper.dart';
 
-import '../dto/project_dto.dart';
+import '../../company/company_entity_mapper.dart';
 
-class ProjectEntityMapper extends BaseEntityMapper<ProjectDto, ProjectEntity> {
+class ProjectWrapperMapper {
   final CompanyEntityMapper _companyEntityMapper = const CompanyEntityMapper();
   final StackEntityMapper _stackEntityMapper = const StackEntityMapper();
   final TagEntityMapper _tagEntityMapper = const TagEntityMapper();
 
-  const ProjectEntityMapper();
+  const ProjectWrapperMapper();
 
-  @override
-  ProjectEntity mapToEntity(ProjectDto dto) {
-    return ProjectEntity(
+  ProjectWrapper mapToWrapper(ProjectDto dto) {
+    return ProjectWrapper(
         name: dto.name,
-        cover: dto.cover,
         id: dto.id,
-        content: null,
+        content: dto.content,
+        cover: dto.cover,
         about: dto.about,
         collaborateWith: dto.company == null
             ? null

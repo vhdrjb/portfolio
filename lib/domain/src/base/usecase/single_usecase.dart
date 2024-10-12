@@ -7,6 +7,7 @@ import 'usecase.dart';
 import 'usecase_errors.dart';
 
 abstract class SingleUseCase<T, R extends Request> implements UseCase<T> {
+
    R? _request;
 
   @override

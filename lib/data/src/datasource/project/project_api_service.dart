@@ -14,9 +14,6 @@ class ProjectApiService extends BaseApiService implements ProjectDatasource {
         id,
         name,
         about,
-        content,
-        galleryUrls:images,
-        cover,
         company:companies(*),
         stacks:project_stacks(
           stacks(*)
@@ -61,9 +58,6 @@ class ProjectApiService extends BaseApiService implements ProjectDatasource {
         company:companies(*),
         stacks:project_stacks(
           stacks(*)
-        ),
-        tags:project_tags(
-          tag:skills(*)
         )
       ''')
         .eq('favorite', 'true')

@@ -61,5 +61,12 @@ class HomeBloc extends AbstractBloc<HomeEvent, HomeState> {
         emit(AchievementDataState(achievements: userInfoResult.data));
       }
     }, transformer: droppable());
+
+    on<OpenProjectByIdEvent>(
+      (event, emit) {
+        emit(NavigateToProjectDetailState(id: event.id.toString()));
+      },
+      transformer: droppable()
+    );
   }
 }

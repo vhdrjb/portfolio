@@ -11,35 +11,41 @@ class LanguageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ...stack.map((e) => Flexible(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox.square(
-                      dimension: Dimensions.stackSize,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: e.color.hexToColor,
-                          shape: BoxShape.circle,
+    return Container(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ...stack.map((e) => Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox.square(
+                        dimension: Dimensions.stackSize,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: e.color.hexToColor,
+                            shape: BoxShape.circle,
+                          ),
                         ),
                       ),
-                    ),
-                    Dimensions.marginHorizontal_4,
-                    Text(
-                      e.name,
-                      style: context.textTheme.bodySmall?.copyWith(
-                        color: context.appColorScheme.secondaryText,
-                      ),
-                    )
-                  ],
-                ),
-          ),
-        )),
-      ],
+                      Dimensions.marginHorizontal_8,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          e.name,
+                          style: context.textTheme.bodyMedium?.copyWith(
+                            color: context.appColorScheme.secondaryText,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+            ),
+          )),
+        ],
+      ),
     );
   }
 }

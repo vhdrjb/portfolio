@@ -38,6 +38,7 @@ import '../../domain/src/career/find/find_last_career_usecase.dart' as _i50;
 import '../../domain/src/project/find/find_all_project_usecase.dart' as _i67;
 import '../../domain/src/project/find/find_favorite_projects_usecase.dart'
     as _i956;
+import '../../domain/src/project/find/find_project_by_id_usecase.dart' as _i141;
 import '../../domain/src/service/find/find_all_favorite_service_usecase.dart'
     as _i349;
 import '../../domain/src/service/find/find_all_service_usecase.dart' as _i1026;
@@ -46,6 +47,8 @@ import '../../presentation/src/modules/career/bloc/career_bloc.dart' as _i986;
 import '../../presentation/src/modules/home/bloc/home_bloc.dart' as _i487;
 import '../../presentation/src/modules/overview/bloc/overview_bloc.dart'
     as _i568;
+import '../../presentation/src/modules/project_detail/bloc/project_detail_bloc.dart'
+    as _i117;
 import '../../presentation/src/modules/projects/bloc/projects_bloc.dart'
     as _i389;
 import '../../presentation/src/modules/services/bloc/services_bloc.dart'
@@ -55,6 +58,7 @@ import '../router/app_router.dart' as _i81;
 import '../router/provider/career_route_provider.dart' as _i196;
 import '../router/provider/home_route_provider.dart' as _i692;
 import '../router/provider/overview_route_provider.dart' as _i580;
+import '../router/provider/project_detail_route_provider.dart' as _i1069;
 import '../router/provider/projects_route_provider.dart' as _i408;
 import '../router/provider/services_route_provider.dart' as _i33;
 
@@ -98,6 +102,8 @@ extension GetItInjectableX on _i174.GetIt {
             repository: gh<_i337.ProjectRepository>()));
     gh.factory<_i67.FindAllProjectUsecase>(() =>
         _i67.FindAllProjectUsecase(repository: gh<_i337.ProjectRepository>()));
+    gh.factory<_i141.FindProjectByIdUsecase>(() => _i141.FindProjectByIdUsecase(
+        repository: gh<_i337.ProjectRepository>()));
     gh.factory<_i349.FindAllFavoriteServiceUsecase>(() =>
         _i349.FindAllFavoriteServiceUsecase(
             repository: gh<_i898.ServiceRepository>()));
@@ -132,6 +138,11 @@ extension GetItInjectableX on _i174.GetIt {
           favoriteServiceUsecase: gh<_i349.FindAllFavoriteServiceUsecase>(),
           findLastCareerUsecase: gh<_i50.FindLastCareerUsecase>(),
         ));
+    gh.factory<_i117.ProjectDetailBloc>(() => _i117.ProjectDetailBloc(
+        findProjectByIdUsecase: gh<_i141.FindProjectByIdUsecase>()));
+    gh.factory<_i1069.ProjectDetailRouteProvider>(() =>
+        _i1069.ProjectDetailRouteProvider(
+            findProjectByIdUsecase: gh<_i141.FindProjectByIdUsecase>()));
     gh.factory<_i408.ProjectsRouteProvider>(() => _i408.ProjectsRouteProvider(
         findAllProjectUsecase: gh<_i67.FindAllProjectUsecase>()));
     gh.factory<_i389.ProjectsBloc>(() => _i389.ProjectsBloc(
@@ -142,6 +153,7 @@ extension GetItInjectableX on _i174.GetIt {
           projectsRouteProvider: gh<_i408.ProjectsRouteProvider>(),
           serviceRouteProvider: gh<_i33.ServiceRouteProvider>(),
           careerRouteProvider: gh<_i196.CareerRouteProvider>(),
+          projectDetailRouteProvider: gh<_i1069.ProjectDetailRouteProvider>(),
         ));
     gh.lazySingleton<_i81.AppRouter>(
         () => _i81.AppRouter(routeFactory: gh<_i994.AppRouteFactory>()));

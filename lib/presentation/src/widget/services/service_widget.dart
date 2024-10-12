@@ -6,6 +6,9 @@ import 'package:portfolio_v2/presentation/src/extensions/string_extensions.dart'
 import 'package:portfolio_v2/presentation/src/theme/button_style.dart';
 import 'package:portfolio_v2/presentation/src/theme/dimensions.dart';
 
+import '../dialog/rounded_wrapped_dialog.dart';
+import '../text/styled_text_widget.dart';
+
 class ServiceWidget extends StatelessWidget {
   final ServiceEntity service;
 
@@ -55,7 +58,8 @@ class ServiceWidget extends StatelessWidget {
           Flexible(
             child: Text(
               service.description,
-              overflow: TextOverflow.clip,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
               textAlign: TextAlign.start,
               style: context.textTheme.bodyMedium
                   ?.copyWith(color: context.appColorScheme.secondaryText),
@@ -63,7 +67,32 @@ class ServiceWidget extends StatelessWidget {
           ),
           Dimensions.marginVertical_16,
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  barrierColor:
+                  context.appColorScheme.headerColor.withOpacity(0.8),
+                  builder: (context) {
+                    return RoundedWrappedDialog(
+                      buttons: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.maybePop(context);
+                          },
+                          style: AppAccentTextButtonStyle(context: context),
+                          child: const Text('OK'),
+                        )
+                      ],
+                      content: Text(
+                         service.description,
+                        style: context.textTheme.bodyMedium?.copyWith(
+                            color: context.appColorScheme.primaryText),
+                      ),
+                    );
+                  },
+                );
+              },
               style: AppButtonStyle(context: context).copyWith(
                 padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(
                     horizontal: Dimensions.margin_8, vertical: 0)),

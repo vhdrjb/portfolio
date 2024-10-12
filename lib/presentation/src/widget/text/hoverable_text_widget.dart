@@ -46,6 +46,7 @@ class _HoverableTextWidgetState extends State<HoverableTextWidget> {
         },
         child: Text(
           widget.label,
+          maxLines: 1,
           style: (widget.style ??context.textTheme.titleMedium)?.copyWith(
             color:
                 _isHovered ? context.appColorScheme.linkColor : widget.primaryColor ?? context.appColorScheme.primaryText,

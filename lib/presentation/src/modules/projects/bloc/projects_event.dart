@@ -4,3 +4,4 @@ part of 'projects_bloc.dart';
 abstract class ProjectsEvent {}
 
 class FindAllProjectsEvent extends ProjectsEvent {}
+

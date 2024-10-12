@@ -51,6 +51,7 @@ class _PageState extends PageState<HomeBloc>
           child: Center(
             child: SingleChildScrollView(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   DecoratedBox(

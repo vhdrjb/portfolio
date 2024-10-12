@@ -14,3 +14,11 @@ class NavigateToCareerEvent extends HomeEvent {}
 class GetUserInfoEvent extends HomeEvent {}
 
 class GetUserHighlightsEvent extends HomeEvent {}
+
+class OpenProjectByIdEvent extends HomeEvent {
+  final int id;
+
+  OpenProjectByIdEvent({
+    required this.id,
+  });
+}
