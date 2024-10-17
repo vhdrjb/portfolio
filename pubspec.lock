@@ -1342,10 +1342,10 @@ packages:
     dependency: "direct dev"
     description:
       name: widget_component
-      sha256: d9a36d98a40765c0f3d8f9a2795181f7a1ba309255da4753078710e78ea01461
+      sha256: baa1b365596af34b55be1e253b026cfd706eb5019ddccbfa01e181b86cc359a9
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.6"
   widget_component_annotation:
     dependency: "direct main"
     description:
