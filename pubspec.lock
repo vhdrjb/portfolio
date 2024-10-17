@@ -1342,18 +1342,18 @@ packages:
     dependency: "direct dev"
     description:
       name: widget_component
-      sha256: "3e4fbca4465bf1966552ffd899cf8f78d13b1b1b7a1769a6730df90445fc6c88"
+      sha256: d9a36d98a40765c0f3d8f9a2795181f7a1ba309255da4753078710e78ea01461
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   widget_component_annotation:
     dependency: "direct main"
     description:
       name: widget_component_annotation
-      sha256: "7a340b6bd402afe42009d3fece14d246662f4daaf445f0dbf80230a05bd0e4d0"
+      sha256: ed043cbb9864f013630affa38dedbeec72f63a5ad1d7241e1d37e08a1aecfcef
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   xdg_directories:
     dependency: transitive
     description:
@@ -1387,5 +1387,5 @@ packages:
     source: hosted
     version: "2.0.3"
 sdks:
-  dart: ">=3.5.3 <4.0.0"
+  dart: ">=3.5.0 <4.0.0"
   flutter: ">=3.24.0"
