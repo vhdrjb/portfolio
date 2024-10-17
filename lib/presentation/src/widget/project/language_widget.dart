@@ -21,22 +21,27 @@ class LanguageWidget extends StatelessWidget {
               child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox.square(
-                        dimension: Dimensions.stackSize,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: e.color.hexToColor,
-                            shape: BoxShape.circle,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: SizedBox.square(
+                          dimension: Dimensions.stackSize,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: e.color.hexToColor,
+                              shape: BoxShape.circle,
+                            ),
                           ),
                         ),
                       ),
                       Dimensions.marginHorizontal_8,
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          e.name,
-                          style: context.textTheme.bodyMedium?.copyWith(
-                            color: context.appColorScheme.secondaryText,
+                      Flexible(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            e.name,
+                            style: context.textTheme.bodyMedium?.copyWith(
+                              color: context.appColorScheme.secondaryText,
+                            ),
                           ),
                         ),
                       )

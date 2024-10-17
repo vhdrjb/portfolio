@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:portfolio_v2/infrastructure/bootstrap/launcher.dart';
 import 'package:portfolio_v2/infrastructure/di/dependency_container.dart';
 import 'package:portfolio_v2/infrastructure/router/app_router.dart';
@@ -25,11 +24,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  late GoRouter _router;
+  late AppRouter _router;
   @override
   void initState() {
     super.initState();
-    _router = router.generateRouter();
+    _router = router;
   }
 
   @override
@@ -38,10 +37,12 @@ class _MyAppState extends State<MyApp> {
       designSize: ResolutionConfig.instance.getDesignSize(context),
       child: MaterialApp.router(
         title: 'Vahid Rajabi Portfolio',
-        routerDelegate: _router.routerDelegate,
-        routeInformationParser: _router.routeInformationParser,
+
+        routerDelegate: _router.router.routerDelegate,
+        routeInformationParser: _router.router.routeInformationParser,
+        routeInformationProvider: _router.router.routeInformationProvider,
+
         theme: AppTheme.theme(brightness: Brightness.dark).themeData,
-        routeInformationProvider: _router.routeInformationProvider,
         scrollBehavior: const MaterialScrollBehavior().copyWith(
           dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch, PointerDeviceKind.stylus, PointerDeviceKind.unknown},
         ),

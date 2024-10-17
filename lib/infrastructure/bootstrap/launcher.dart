@@ -10,10 +10,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 typedef Application = Widget Function();
 
 Future<void> launch(Application application) async {
-
   await dotenv.load(fileName: '.env');
-  
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+  WidgetsFlutterBinding.ensureInitialized();
   // supabase
   Supabase.initialize(
       debug: !kReleaseMode,
@@ -21,7 +20,6 @@ Future<void> launch(Application application) async {
       url: dotenv.env['SERVER_URL']!,
       anonKey: dotenv.env['ANNO_KEY']!);
 
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   configureDependencies();
 
   usePathUrlStrategy();
@@ -29,5 +27,4 @@ Future<void> launch(Application application) async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
   runApp(application());
-  FlutterNativeSplash.remove();
 }

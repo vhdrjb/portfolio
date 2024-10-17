@@ -14,9 +14,11 @@ class AppRouter {
   final GlobalKey<NavigatorState> _shellNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: 'shell');
 
-  AppRouter({
-    required AppRouteFactory routeFactory,
-  }) : _routeFactory = routeFactory;
+  AppRouter({required AppRouteFactory routeFactory}) : _routeFactory = routeFactory {
+    generateRouter();
+  }
+
+  GoRouter get router => _goRouter!;
 
   GoRouter generateRouter() {
     final GoRouter goRouter;
@@ -31,13 +33,13 @@ class AppRouter {
             navigatorKey: _shellNavigatorKey,
             builder: _routeFactory.createNested,
             routes: [
-              GoRoute(path: Routes.overview,pageBuilder:_routeFactory.create),
-              GoRoute(path: Routes.projects,pageBuilder: _routeFactory.create),
-              GoRoute(path: Routes.services,pageBuilder: _routeFactory.create),
-              GoRoute(path: Routes.careers,pageBuilder: _routeFactory.create)
+              GoRoute(path: Routes.overview,pageBuilder:_routeFactory.create,name: Routes.overview),
+              GoRoute(path: Routes.projects,pageBuilder: _routeFactory.create,name: Routes.projects),
+              GoRoute(path: Routes.services,pageBuilder: _routeFactory.create,name: Routes.services),
+              GoRoute(path: Routes.careers,pageBuilder: _routeFactory.create,name: Routes.careers)
             ],
           ),
-          GoRoute(path: Routes.projectDetail,pageBuilder: _routeFactory.create)
+          GoRoute(path: Routes.projectDetail,pageBuilder: _routeFactory.create,name: Routes.projectDetail)
         ],
       );
       goRouter = _goRouter!;
