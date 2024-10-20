@@ -58,7 +58,7 @@ jobs:
 
 
       - name: Build the web project
-        run: flutter build web --web-renderer canvaskit
+        run: flutter build web --web-renderer canvaskit -v
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

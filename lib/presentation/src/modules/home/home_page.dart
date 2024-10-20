@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_v2/presentation/src/modules/home/components/profile/web/profile_web_component.dart';
 import '../../config/routes.dart';
@@ -54,6 +55,8 @@ class _PageState extends PageState<HomeBloc>
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Text('server : ${dotenv.env['SERVER_URL']!}'),
+                  Text('key : ${dotenv.env['ANNO_KEY']!}'),
                   DecoratedBox(
                     decoration: BoxDecoration(
                         color: context.appColorScheme.headerColor,
