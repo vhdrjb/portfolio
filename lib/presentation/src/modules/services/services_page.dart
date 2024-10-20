@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_v2/presentation/src/base/page/base_page.dart';
 import 'package:portfolio_v2/presentation/src/modules/services/bloc/services_bloc.dart';
 
-import '../../../../data/stub_datasource.dart';
-import '../../theme/dimensions.dart';
-import '../../widget/services/service_widget.dart';
 import 'component/services_component.dart';
 
 class ServicesPage extends BasePage<ServicesBloc> {

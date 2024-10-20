@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_v2/data/stub_datasource.dart';
 import 'package:portfolio_v2/presentation/src/base/page/base_page.dart';
-import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/modules/career/bloc/career_bloc.dart';
 import 'package:portfolio_v2/presentation/src/modules/career/component/career_component.dart';
-import 'package:portfolio_v2/presentation/src/widget/career/career_widget.dart';
 
 class CareerPage extends BasePage<CareerBloc> {
   const CareerPage({super.key});
