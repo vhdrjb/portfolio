@@ -1,0 +1,15 @@
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/images/png/logo.png"
+
+  android: false
+  ios: false
+
+  web:
+    generate: true
+    image_path: "assets/images/png/logo.png"
+
+  windows:
+    generate: false
+  macos:
+    generate: false

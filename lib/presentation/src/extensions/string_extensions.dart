@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:portfolio_v2/infrastructure/bootstrap/environment_vars.dart';
 // import 'dart:html' as html;
 
 extension StringExtensions on String {
@@ -40,6 +41,6 @@ extension StringExtensions on String {
   }
 
   String get toSupaBaseUrl {
-    return '${dotenv.env['SERVER_URL']!}/storage/v1/object/public/$this';
+    return '${EnvironmentVars.getRuntimeVariables()[EnvironmentVars.serverUrl]}/storage/v1/object/public/$this';
   }
 }
