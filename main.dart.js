@@ -30364,9 +30364,9 @@ bgC(a,b){return a.b<=b.b?b:a},
 apy(a,b){if(a!=null)return b.$1(a)
 return null},
 rQ(){var s=A.o(t.N,t.z),r=$.aMn().gY_().i(0,"ANNO_KEY")
-s.n(0,"Anno-Key_key",r==null?"":r)
+s.n(0,"Anno-Key_key",r==null?"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqenVseHN5bXlwaGxrbnd5amZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4MDczMzksImV4cCI6MjA0MzM4MzMzOX0.ljUqKNGvsZYi-JtU5BFRuiGfrozd6lxZqhomxmiwEuc":r)
 r=$.aMn().gY_().i(0,"SERVER_URL")
-s.n(0,"Server-Url_key",r==null?"":r)
+s.n(0,"Server-Url_key",r==null?"https://zjzulxsymyphlknwyjfn.supabase.co":r)
 return s},
 aLk(a){var s=0,r=A.F(t.H),q,p,o,n,m,l,k,j
 var $async$aLk=A.y(function(b,c){if(b===1)return A.C(c,r)
