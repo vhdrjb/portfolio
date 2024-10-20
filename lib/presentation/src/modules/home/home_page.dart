@@ -52,6 +52,7 @@ class _PageState extends PageState<HomeBloc>
           child: Align(
             alignment: Alignment.topCenter,
             child: SingleChildScrollView(
+
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
