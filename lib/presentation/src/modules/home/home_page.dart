@@ -55,8 +55,6 @@ class _PageState extends PageState<HomeBloc>
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text('server : ${dotenv.env['SERVER_URL']!}'),
-                  Text('key : ${dotenv.env['ANNO_KEY']!}'),
                   DecoratedBox(
                     decoration: BoxDecoration(
                         color: context.appColorScheme.headerColor,
@@ -70,7 +68,7 @@ class _PageState extends PageState<HomeBloc>
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: SizedBox(
-                              width: 450,
+                              width: 480,
                               child: TabBar(
                                 indicatorColor:
                                     context.appColorScheme.accentColor,

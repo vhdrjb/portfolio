@@ -12,6 +12,7 @@ class ProfileWebLoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: Dimensions.profileWebWidth,
+      height: context.screenSize.height,
       child: ShimmerWidget(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
