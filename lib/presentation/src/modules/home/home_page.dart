@@ -49,96 +49,99 @@ class _PageState extends PageState<HomeBloc>
         backgroundColor: context.appColorScheme.surface,
         body: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                      color: context.appColorScheme.headerColor,
-                      border: Border(
-                          bottom: BorderSide(
-                              color: context.appColorScheme.dividerColor,
-                              width: 2))),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: SizedBox(
-                            width: 480,
-                            child: TabBar(
-                              indicatorColor:
-                                  context.appColorScheme.accentColor,
-                              indicatorSize: TabBarIndicatorSize.label,
-                              dividerColor: Colors.transparent,
-                              dividerHeight: 0,
-                              overlayColor: const WidgetStatePropertyAll(
-                                  Colors.transparent),
-                              onTap: (value) {
-                                _routeStrategy.move(value, bloc);
-                              },
-                              physics: const BouncingScrollPhysics(),
-                              controller: _tabController,
-                              tabs: [
-                                Tab(
-                                  child: TabWidget(
-                                    label: 'Overview',
-                                    iconPath: 'overview'.toSvg,
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                        color: context.appColorScheme.headerColor,
+                        border: Border(
+                            bottom: BorderSide(
+                                color: context.appColorScheme.dividerColor,
+                                width: 2))),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: SizedBox(
+                              width: 480,
+                              child: TabBar(
+                                indicatorColor:
+                                    context.appColorScheme.accentColor,
+                                indicatorSize: TabBarIndicatorSize.label,
+                                dividerColor: Colors.transparent,
+                                dividerHeight: 0,
+                                overlayColor: const WidgetStatePropertyAll(
+                                    Colors.transparent),
+                                onTap: (value) {
+                                  _routeStrategy.move(value, bloc);
+                                },
+                                physics: const BouncingScrollPhysics(),
+                                controller: _tabController,
+                                tabs: [
+                                  Tab(
+                                    child: TabWidget(
+                                      label: 'Overview',
+                                      iconPath: 'overview'.toSvg,
+                                    ),
                                   ),
-                                ),
-                                Tab(
-                                  child: TabWidget(
-                                    label: 'Projects',
-                                    iconPath: 'application'.toSvg,
+                                  Tab(
+                                    child: TabWidget(
+                                      label: 'Projects',
+                                      iconPath: 'application'.toSvg,
+                                    ),
                                   ),
-                                ),
-                                Tab(
-                                  child: TabWidget(
-                                    label: 'Services',
-                                    iconPath: 'service'.toSvg,
+                                  Tab(
+                                    child: TabWidget(
+                                      label: 'Services',
+                                      iconPath: 'service'.toSvg,
+                                    ),
                                   ),
-                                ),
-                                Tab(
-                                  child: TabWidget(
-                                    label: 'Career',
-                                    iconPath: 'career'.toSvg,
+                                  Tab(
+                                    child: TabWidget(
+                                      label: 'Career',
+                                      iconPath: 'career'.toSvg,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const Spacer()
-                    ],
-                  ),
-                ),
-                Dimensions.marginVertical_32,
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Flexible(
-                      child: ProfileWebComponent(),
+                        const Spacer()
+                      ],
                     ),
-                    Dimensions.marginHorizontal_32,
-                    Expanded(
-                      child: Center(
-                        child: Container(
-                          constraints: const BoxConstraints(
-                            minWidth: Dimensions.homeContentWebMinWidth,
-                            maxWidth: Dimensions.homeContentWebMaxWidth,
+                  ),
+                  Dimensions.marginVertical_32,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Flexible(
+                        child: ProfileWebComponent(),
+                      ),
+                      Dimensions.marginHorizontal_32,
+                      Expanded(
+                        child: Center(
+                          child: Container(
+                            constraints: const BoxConstraints(
+                              minWidth: Dimensions.homeContentWebMinWidth,
+                              maxWidth: Dimensions.homeContentWebMaxWidth,
+                            ),
+                            child: parentWidget.child,
                           ),
-                          child: parentWidget.child,
                         ),
                       ),
-                    ),
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ));
