@@ -11,31 +11,35 @@ class TabWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SvgPicture.asset(
-          iconPath,
-          height: 12,
-          width: 12,
-          fit: BoxFit.contain,
-          colorFilter: ColorFilter.mode(
-              context.appColorScheme.iconColor,
-              BlendMode.srcIn),
-        ),
-        Dimensions.marginHorizontal_8,
-        Expanded(
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              label,
-              textAlign: TextAlign.left,
-              style: context.textTheme.titleMedium?.copyWith(
-                  color: context.appColorScheme.primaryText),
+    return SizedBox(
+      width: 180,
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SvgPicture.asset(
+              iconPath,
+              height: 12,
+              width: 12,
+              fit: BoxFit.contain,
+              colorFilter: ColorFilter.mode(
+                  context.appColorScheme.iconColor,
+                  BlendMode.srcIn),
             ),
-          ),
-        )
-      ],
+            Dimensions.marginHorizontal_8,
+            FittedBox(
+              fit:BoxFit.scaleDown ,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                label,
+                textAlign: TextAlign.left,
+                style: context.textTheme.titleMedium?.copyWith(
+                    color: context.appColorScheme.primaryText),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

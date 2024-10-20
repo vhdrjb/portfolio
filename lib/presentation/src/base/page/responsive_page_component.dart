@@ -4,11 +4,14 @@ import '../../theme/theme_config.dart';
 import 'device_type.dart';
 import '../../config/resolution_config.dart';
 
+
+typedef PageBuilder = Widget Function(Size size);
+
 class ResponsivePageComponent extends StatefulWidget {
 
-  final Widget mobile;
-  final Widget? tablet;
-  final Widget desktop;
+  final PageBuilder mobile;
+  final PageBuilder? tablet;
+  final PageBuilder desktop;
 
   const ResponsivePageComponent(
       {super.key,
@@ -31,7 +34,7 @@ class _ResponsivePageComponentState extends State<ResponsivePageComponent> {
             ScreenUtil.configure(designSize: const Size(430, 932));
             ThemeConfig.type = DeviceType.mobile;
           }
-          return widget.mobile;
+          return widget.mobile(Size(constraints.maxWidth, constraints.maxHeight));
         }
 
         if (widget.tablet!=null) {
@@ -41,7 +44,7 @@ class _ResponsivePageComponentState extends State<ResponsivePageComponent> {
               ScreenUtil.configure(designSize: const Size(1024, 1366));
               ThemeConfig.type = DeviceType.tablet;
             }
-            return widget.tablet!;
+            return widget.tablet!(Size(constraints.maxWidth, constraints.maxHeight));
           }
         }
 
@@ -50,10 +53,10 @@ class _ResponsivePageComponentState extends State<ResponsivePageComponent> {
             ScreenUtil.configure(designSize: const Size(1920, 1080));
             ThemeConfig.type = DeviceType.desktop;
           }
-          return widget.desktop;
+          return widget.desktop(Size(constraints.maxWidth, constraints.maxHeight));
         }
 
-        return widget.desktop;
+        return widget.desktop(Size(constraints.maxWidth, constraints.maxHeight));
       },
     );
   }

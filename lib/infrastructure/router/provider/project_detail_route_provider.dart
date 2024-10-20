@@ -22,8 +22,8 @@ class ProjectDetailRouteProvider extends BaseRoute<ProjectDetailBloc> {
     return BlocProvider(
       create: (_) => getBloc(state),
       child: ResponsivePageComponent(
-        desktop: const ProjectDetailPage(),
-        mobile: Scaffold(
+        desktop: (size) =>  const ProjectDetailPage(),
+        mobile: (size) => Scaffold(
           body: Center(
             child: Text(
               'Under construction, Please use web version',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_v2/presentation/src/modules/home/components/profile/web/profile_web_component.dart';
+import 'package:portfolio_v2/presentation/src/modules/home/components/tab/tab_bar_widget.dart';
 import '../../config/routes.dart';
 import '../../extensions/context_extensions.dart';
 import '../../extensions/string_extensions.dart';
@@ -10,30 +11,30 @@ import '../../theme/dimensions.dart';
 import '../../base/page/base_page.dart';
 import '../../widget/tab/tab_widget.dart';
 import 'bloc/home_bloc.dart';
-import 'components/tab/tab_bar_widget.dart';
 import 'home_route_strategy.dart';
 
-class HomePage extends BasePage<HomeBloc> {
+class HomeMobile extends BasePage<HomeBloc> {
   final Widget child;
   final String? path;
   final double width;
-
-  const HomePage({super.key, required this.child, required this.path,required this.width});
+  const HomeMobile({super.key, required this.child, required this.path,required this.width});
 
   @override
   State<StatefulWidget> createState() => _PageState();
 }
 
 class _PageState extends PageState<HomeBloc> {
+  late HomeRouteStrategy _routeStrategy;
 
   @override
   void initState() {
     super.initState();
+    _routeStrategy = const HomeRouteStrategy();
     bloc.add(GetUserInfoEvent());
   }
 
-  HomePage get parentWidget {
-    return widget as HomePage;
+  HomeMobile get parentWidget {
+    return widget as HomeMobile;
   }
 
   @override

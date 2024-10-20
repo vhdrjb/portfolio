@@ -69,5 +69,6 @@ abstract class Dimensions {
   static const double galleryHeight = 300;
   static const double galleryMaxWidth = 200;
   static const double galleryLoadingSize = 50;
+  static const double tabOverflowSize = 32;
 
 }
