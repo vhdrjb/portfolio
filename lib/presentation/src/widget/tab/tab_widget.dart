@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
+import 'package:portfolio_v2/presentation/src/theme/button_style.dart';
 
 import '../../theme/dimensions.dart';
 
 class TabWidget extends StatelessWidget {
   final String label;
   final String iconPath;
-  const TabWidget({super.key,required this.label,required this.iconPath});
+  final bool selected;
+  final VoidCallback? onPress;
+  const TabWidget({super.key,required this.label,required this.iconPath,required this.selected,this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 180,
+      width: Dimensions.tabIndicatorWidth,
       child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SvgPicture.asset(
+        child: ElevatedButton.icon(
+          onPressed: onPress,
+          style: TabBarButtonStyle(context: context),
+            icon:SvgPicture.asset(
               iconPath,
-              height: 12,
-              width: 12,
+              height: Dimensions.tabIconSize,
+              width: Dimensions.tabIconSize,
               fit: BoxFit.contain,
               colorFilter: ColorFilter.mode(
                   context.appColorScheme.iconColor,
                   BlendMode.srcIn),
             ),
-            Dimensions.marginHorizontal_8,
-            FittedBox(
-              fit:BoxFit.scaleDown ,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                label,
-                textAlign: TextAlign.left,
-                style: context.textTheme.titleMedium?.copyWith(
-                    color: context.appColorScheme.primaryText),
-              ),
+           label : Text(
+              label,
+              textAlign: TextAlign.left,
+              style: context.textTheme.titleMedium?.copyWith(
+                  color: context.appColorScheme.primaryText),
             )
-          ],
         ),
       ),
     );

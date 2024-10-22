@@ -14,7 +14,7 @@ class ProjectTagsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double availableWidth = constraints.maxWidth ;
+        double availableWidth = constraints.maxWidth  - Dimensions.margin_32;
         double usedWidth = 0;
         List<Widget> visibleTags = [];
         for (var tag in tags) {

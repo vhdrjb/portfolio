@@ -19,8 +19,8 @@ class ProfileWebLoadingWidget extends StatelessWidget {
           children: [
             Container(
               constraints: const BoxConstraints(
-                maxWidth: 300,
-                maxHeight: 300,
+                maxWidth: Dimensions.profileImageSize,
+                maxHeight: Dimensions.profileImageSize,
               ),
               child: Container(
                 decoration: BoxDecoration(

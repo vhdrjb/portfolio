@@ -73,11 +73,12 @@ class ProjectHeaderWidget extends StatelessWidget {
                         Tab(
                           child: TabWidget(
                             label: 'Info',
-                            iconPath: 'overview'.toSvg,
+                            iconPath: 'overview'.toSvg, selected: true,
                           ),
                         ),
                         Tab(
                           child: TabWidget(
+                            selected: true,
                             label: 'Gallery',
                             iconPath: 'application'.toSvg,
                           ),

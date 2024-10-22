@@ -1,5 +1,8 @@
 
+import 'package:flutter/widgets.dart';
+
 import '../base/page/device_type.dart';
+import 'dimensions.dart';
 
 abstract class ThemeConfig {
   static DeviceType? type = null;
@@ -12,4 +15,5 @@ abstract class ThemeConfig {
       return 1;
     }
   }
+
 }

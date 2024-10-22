@@ -55,6 +55,18 @@ class OverviewServiceLoadingState extends OverviewServiceState {}
 
 class OverviewServiceErrorState extends OverviewServiceState {}
 
+sealed class OverviewProfileState extends OverviewState {
+  const OverviewProfileState();
+}
 
+class OverviewProfileDataState extends OverviewProfileState {
+  final UserEntity profile;
 
+  const OverviewProfileDataState({
+    required this.profile,
+  });
+}
 
+class OverviewProfileErrorState extends OverviewProfileState {}
+
+class OverviewProfileLoadingState extends OverviewProfileState {}

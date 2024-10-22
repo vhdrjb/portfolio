@@ -24,12 +24,10 @@ class HomeMobile extends BasePage<HomeBloc> {
 }
 
 class _PageState extends PageState<HomeBloc> {
-  late HomeRouteStrategy _routeStrategy;
 
   @override
   void initState() {
     super.initState();
-    _routeStrategy = const HomeRouteStrategy();
     bloc.add(GetUserInfoEvent());
   }
 
@@ -60,27 +58,15 @@ class _PageState extends PageState<HomeBloc> {
                     child: TabBarWidget(width: parentWidget.width,path: parentWidget.path,),
                   ),
                   Dimensions.marginVertical_32,
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Flexible(
-                        child: ProfileWebComponent(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.margin_16),
+                    child: Container(
+                      constraints: const BoxConstraints(
+                        minWidth: Dimensions.homeContentWebMinWidth,
+                        maxWidth: Dimensions.homeContentWebMaxWidth,
                       ),
-                      Dimensions.marginHorizontal_32,
-                      Expanded(
-                        child: Center(
-                          child: Container(
-                            constraints: const BoxConstraints(
-                              minWidth: Dimensions.homeContentWebMinWidth,
-                              maxWidth: Dimensions.homeContentWebMaxWidth,
-                            ),
-                            child: parentWidget.child,
-                          ),
-                        ),
-                      ),
-                    ],
+                      child: parentWidget.child,
+                    ),
                   )
                 ],
               ),

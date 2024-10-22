@@ -30,6 +30,34 @@ class AppButtonStyle extends ButtonStyle {
     required this.context,
   });
 }
+class AppMobileButtonStyle extends ButtonStyle {
+  final BuildContext context;
+
+  @override
+  WidgetStateProperty<OutlinedBorder?>? get shape =>
+      WidgetStatePropertyAll(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dimensions.buttonBorderRadius),
+          side: BorderSide(
+              color: context.appColorScheme.dividerColor, width: 1)));
+
+  @override
+  WidgetStateProperty<EdgeInsetsGeometry?>? get padding =>
+      const WidgetStatePropertyAll(EdgeInsets.symmetric(
+          vertical: Dimensions.margin_16,
+          horizontal: Dimensions.margin_32));
+
+  @override
+  WidgetStateProperty<Color?>? get foregroundColor =>
+      WidgetStatePropertyAll(context.appColorScheme.primaryText);
+
+  @override
+  WidgetStateProperty<Color?>? get backgroundColor =>
+      WidgetStatePropertyAll(context.appColorScheme.buttonColor);
+
+  const AppMobileButtonStyle({
+    required this.context,
+  });
+}
 
 class AppTextButtonStyle extends ButtonStyle {
   final BuildContext context;

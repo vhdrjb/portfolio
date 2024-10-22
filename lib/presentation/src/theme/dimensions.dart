@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio_v2/presentation/src/extensions/size_extensions.dart';
 
 abstract class Dimensions {
   static const double navbarDividerHeight = 33;
@@ -13,7 +13,6 @@ abstract class Dimensions {
   static const double buttonBorderRadius = 6;
   static const double allProjectsBorder = 8;
   static const double projectsHeight = 160;
-  static double projectSummeryHeight = 0.2.sw + projectsHeight;
 
   // margins
   static const double margin_4 = 4;
@@ -70,5 +69,12 @@ abstract class Dimensions {
   static const double galleryMaxWidth = 200;
   static const double galleryLoadingSize = 50;
   static const double tabOverflowSize = 32;
+
+  static const double tabIndicatorWidth = 120;
+  static const double tabIconSize = 12;
+  static const double tabBarWidth = 510;
+  static const double tabBarHeight = 48;
+  static const double profileImageSize = 300;
+  static const double profileMobileImageSize = 93;
 
 }

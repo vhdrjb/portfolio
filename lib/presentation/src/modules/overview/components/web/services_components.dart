@@ -8,7 +8,7 @@ import 'package:portfolio_v2/presentation/src/widget/shimmer/shimmer_widget.dart
 import 'package:shimmer/shimmer.dart';
 import 'package:widget_component_annotation/widget_component_annotation.dart';
 
-import '../bloc/overview_bloc.dart';
+import '../../bloc/overview_bloc.dart';
 
 part 'services_components.g.dart';
 
