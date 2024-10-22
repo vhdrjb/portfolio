@@ -20,18 +20,6 @@ class OverviewPage extends BasePage<OverviewBloc> {
 
 class _OverviewState extends PageState<OverviewBloc> {
   @override
-  void initState() {
-    super.initState();
-    _getData();
-  }
-
-  void _getData() {
-    bloc.add(FindFavoriteProjectsEvent());
-    bloc.add(FindOverviewServiceEvent());
-    bloc.add(FindLastCareerEvent());
-  }
-
-  @override
   Widget buildScreen(BuildContext context) {
     return ResponsivePageComponent(
       desktop: (Size size) {

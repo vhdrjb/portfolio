@@ -52,6 +52,12 @@ class LastCareersMobileComponent extends _$LastCareersMobileComponent {
   }
 
   @override
+  void onInitialization(BuildContext context) {
+    super.onInitialization(context);
+    context.read<OverviewBloc>().add(FindLastCareerEvent());
+  }
+
+  @override
   Widget onInitWidget(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: Dimensions.margin_24),

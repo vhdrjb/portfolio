@@ -39,7 +39,10 @@ class OverviewPageWeb extends StatelessWidget {
                   ?.copyWith(color: context.appColorScheme.primaryText),
             ),
             Dimensions.marginVertical_8,
-            const LastCareersComponent()
+            const LastCareersComponent(),
+            const SizedBox(
+              height: Dimensions.margin_24,
+            ),
           ],
         ),
       ),

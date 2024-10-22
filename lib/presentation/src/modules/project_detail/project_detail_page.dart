@@ -25,5 +25,4 @@ class _ProjectDetailState extends PageState<ProjectDetailBloc> {
       body: ProjectDetailComponent(),
     );
   }
-
 }

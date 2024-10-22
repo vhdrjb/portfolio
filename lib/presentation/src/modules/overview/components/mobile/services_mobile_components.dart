@@ -51,6 +51,11 @@ class ServicesMobileComponents extends _$ServicesMobileComponents {
       ),
     );
   }
+  @override
+  void onInitialization(BuildContext context) {
+    super.onInitialization(context);
+    context.read<OverviewBloc>().add(FindOverviewServiceEvent());
+  }
 
   @override
   Widget onInitWidget(BuildContext context) {

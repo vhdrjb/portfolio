@@ -40,6 +40,12 @@ class FavoriteProjectsComponent extends _$FavoriteProjectsComponent {
   }
 
   @override
+  void onInitialization(BuildContext context) {
+    super.onInitialization(context);
+    context.read<OverviewBloc>().add(FindFavoriteProjectsEvent());
+  }
+
+  @override
   Widget onInitWidget(BuildContext context) {
     return ShimmerWidget(
       child: GridView.builder(

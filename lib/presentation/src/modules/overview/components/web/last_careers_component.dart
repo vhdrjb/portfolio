@@ -38,6 +38,12 @@ class LastCareersComponent extends _$LastCareersComponent {
   }
 
   @override
+  void onInitialization(BuildContext context) {
+    super.onInitialization(context);
+    context.read<OverviewBloc>().add(FindLastCareerEvent());
+  }
+
+  @override
   Widget onInitWidget(BuildContext context) {
     return ShimmerWidget(
       child: GridView.builder(

@@ -8,6 +8,7 @@ import 'package:portfolio_v2/presentation/src/modules/project_detail/bloc/projec
 import 'package:portfolio_v2/presentation/src/modules/project_detail/project_detail_page.dart';
 
 import '../../../presentation/src/base/page/responsive_page_component.dart';
+import '../../../presentation/src/modules/project_detail/project_detail_mobile.dart';
 
 class ProjectDetailRouteProvider extends BaseRoute<ProjectDetailBloc> {
   final FindProjectByIdUsecase findProjectByIdUsecase;
@@ -23,15 +24,7 @@ class ProjectDetailRouteProvider extends BaseRoute<ProjectDetailBloc> {
       create: (_) => getBloc(state),
       child: ResponsivePageComponent(
         desktop: (size) =>  const ProjectDetailPage(),
-        mobile: (size) => Scaffold(
-          body: Center(
-            child: Text(
-              'Under construction, Please use web version',
-              style: context.textTheme.titleMedium
-                  ?.copyWith(color: context.appColorScheme.secondaryText),
-            ),
-          ),
-        ), tablet: null,
+        mobile: (size) => const ProjectDetailMobile() , tablet: null,
       ),
     );
   }
