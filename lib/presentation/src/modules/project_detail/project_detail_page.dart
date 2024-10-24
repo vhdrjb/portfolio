@@ -12,11 +12,12 @@ class ProjectDetailPage extends BasePage<ProjectDetailBloc> {
 }
 
 class _ProjectDetailState extends PageState<ProjectDetailBloc> {
-
   @override
   Widget buildScreen(BuildContext context) {
-    return const Scaffold(
-      body: ProjectDetailComponent(),
+    return Scaffold(
+      body: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: const ProjectDetailComponent()),
     );
   }
 }
