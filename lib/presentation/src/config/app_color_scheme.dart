@@ -86,13 +86,13 @@ class _LightColorScheme extends AppColorScheme {
 
 class _DarkColorScheme extends AppColorScheme {
   const _DarkColorScheme() : super._dark(
-      surface: const Color(0xff21262D)
+      surface: const Color(0xff212830)
   );
 
   @override
   Color get iconColor => const Color(0xffd9d9da);
 @override
-  Color get primaryText => const Color(0xffC9D1D9);
+  Color get primaryText => const Color(0xffd1d7e0);
 
   @override
   Color get accentColor => const Color(0xffDC7D62);
@@ -101,7 +101,7 @@ class _DarkColorScheme extends AppColorScheme {
   Color get loadingColor => const Color(0xff8c8c8c);
 
   @override
-  Color get secondaryText => const Color(0xff8B949E);
+  Color get secondaryText => const Color(0xff9198a1);
 
   @override
   Color get buttonColor => const Color(0xff2B303B);
@@ -110,16 +110,16 @@ class _DarkColorScheme extends AppColorScheme {
   Color get dividerColor => const Color(0xff3E434C);
 
   @override
-  Color get headerColor => const Color(0xff0D1117);
+  Color get headerColor => const Color(0xff151b23);
 
   @override
   Color get borderColor => const Color(0xff3E434C);
 
   @override
-  Color get linkColor => const Color(0xff58A6FF);
+  Color get linkColor => const Color(0xff478be6);
 
   @override
-  Color get highlightColor =>const Color(0xff0bb92b);
+  Color get highlightColor =>const Color(0xff2fbb4f);
 
   @override
   Color get placeHolderColor => const Color(0xff3d444f);

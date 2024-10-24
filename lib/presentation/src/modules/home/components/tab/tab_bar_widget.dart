@@ -142,12 +142,12 @@ class _TabBarMobileWidgetState extends State<TabBarWidget>
                     debugPrint('index is $i');
                     if (i == 0) {
                       return const PopupMenuItem<int>(
-                        value: 2,
+                        value: 0,
                         child: Text('Overview'),
                       );
                     } else if (i == 1) {
                       return const PopupMenuItem<int>(
-                        value: 3,
+                        value: 1,
                         child: Text('Projects'),
                       );
                     } else if (i == 2) {

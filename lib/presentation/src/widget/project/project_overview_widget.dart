@@ -34,7 +34,9 @@ class ProjectOverviewWidget extends StatelessWidget {
                   label:
                     project.name,
                     primaryColor: context.appColorScheme.linkColor,
-                    style: context.textTheme.titleMedium,
+                    style: context.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700
+                    ),
                 ),
               ),
               if (project.collaborateWith != null)

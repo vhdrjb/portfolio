@@ -41,7 +41,7 @@ class ProjectTagsWidget extends StatelessWidget {
       text: TextSpan(
         text: (widget as TagWidget).tag,
         style: context.textTheme.titleSmall
-            ?.copyWith(color: context.appColorScheme.linkColor),
+            ?.copyWith(color: context.appColorScheme.linkColor,fontWeight: FontWeight.w600),
       ),
       textDirection: TextDirection.ltr,
     )

@@ -15,7 +15,7 @@ class TagWidget extends StatelessWidget {
         label: Text(
           tag,
           style: context.textTheme.labelSmall
-              ?.copyWith(color: context.appColorScheme.linkColor),
+              ?.copyWith(color: context.appColorScheme.linkColor,fontWeight: FontWeight.bold),
         ),
         color: WidgetStatePropertyAll(
             context.appColorScheme.linkColor.withOpacity(0.2)),

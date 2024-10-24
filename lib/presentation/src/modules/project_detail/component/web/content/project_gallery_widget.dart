@@ -5,7 +5,7 @@ import 'package:portfolio_v2/infrastructure/router/provider/home_route_provider.
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/extensions/string_extensions.dart';
 
-import '../../../../theme/dimensions.dart';
+import '../../../../../theme/dimensions.dart';
 
 class ProjectGalleryWidget extends StatelessWidget {
   final List<String>? images;
@@ -26,6 +26,8 @@ class ProjectGalleryWidget extends StatelessWidget {
     }
     return GridView.builder(
         itemCount: images!.length,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemBuilder: (context, index) => GestureDetector(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(Dimensions.projectBorders),
@@ -61,18 +63,43 @@ class ProjectGalleryWidget extends StatelessWidget {
       transitionDuration: const Duration(milliseconds: 200),
       pageBuilder: (BuildContext context, Animation animation,
           Animation secondaryAnimation) {
-        return Center(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Material(
-              color: Colors.transparent,
-              child: CachedNetworkImage(
-                imageUrl: imagePath,
+        return Stack(
+          children: [
+            Positioned.fill(
+              child: Padding(
+                padding: const EdgeInsets.all(Dimensions.margin_16),
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      child: CachedNetworkImage(
+                        imageUrl: imagePath,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
+            Positioned(
+              top: Dimensions.margin_24,
+              left: Dimensions.margin_24,
+              child: GestureDetector(
+                onTap: () => Navigator.maybeOf(context)?.maybePop(),
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                      color: context.appColorScheme.dividerColor,
+                      borderRadius: BorderRadius.circular(Dimensions.buttonBorderRadius)
+                  ),
+                  child: const Icon(Icons.clear),
+                ),
+              ),
+            ),
+          ],
         );
       },
     );

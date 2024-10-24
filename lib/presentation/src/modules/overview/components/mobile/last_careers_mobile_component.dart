@@ -33,7 +33,7 @@ class LastCareersMobileComponent extends _$LastCareersMobileComponent {
           Text(
             'Last Career',
             style: context.textTheme.titleMedium
-                ?.copyWith(color: context.appColorScheme.primaryText),
+                ?.copyWith(color: context.appColorScheme.primaryText,fontWeight: FontWeight.w700),
           ),
           Dimensions.marginVertical_8,
           ListView.builder(
@@ -67,7 +67,7 @@ class LastCareersMobileComponent extends _$LastCareersMobileComponent {
           Text(
             'Last Career',
             style: context.textTheme.titleMedium
-                ?.copyWith(color: context.appColorScheme.primaryText),
+                ?.copyWith(color: context.appColorScheme.primaryText,fontWeight: FontWeight.w700),
           ),
           Dimensions.marginVertical_8,
           ShimmerWidget(

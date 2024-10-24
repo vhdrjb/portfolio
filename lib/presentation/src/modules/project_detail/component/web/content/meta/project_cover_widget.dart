@@ -4,7 +4,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/extensions/string_extensions.dart';
 
-import '../../../../../theme/dimensions.dart';
+import '../../../../../../theme/dimensions.dart';
 
 class ProjectCoverWidget extends StatelessWidget {
   final String projectCover;

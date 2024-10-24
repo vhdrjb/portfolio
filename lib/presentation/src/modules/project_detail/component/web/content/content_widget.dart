@@ -3,10 +3,11 @@ import 'package:portfolio_v2/domain/domain.dart';
 import 'package:portfolio_v2/domain/src/base/text/styled_text.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/home_route_provider.dart';
 import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
+import 'package:portfolio_v2/presentation/src/modules/project_detail/component/web/content/meta/project_tags_widget.dart';
 import 'package:portfolio_v2/presentation/src/widget/text/styled_text_widget.dart';
 
-import '../../../../theme/dimensions.dart';
-import '../../../../widget/project/language_widget.dart';
+import '../../../../../theme/dimensions.dart';
+import '../../../../../widget/project/language_widget.dart';
 
 class ContentWidget extends StatelessWidget {
   final ProjectEntity project;
@@ -56,6 +57,10 @@ class ContentWidget extends StatelessWidget {
             color: context.appColorScheme.primaryText
           ),),
         ),
+        if (project.tags != null)
+          ProjectTagsWidget(
+            tags: project.tags!,
+          ),
       ],
     );
   }

@@ -20,6 +20,7 @@ class OverviewPageMobile extends StatelessWidget {
           ServicesMobileComponents(),
           LastCareersMobileComponent(),
           SizedBox(height: Dimensions.margin_32,)
+
         ],
       ),
     );

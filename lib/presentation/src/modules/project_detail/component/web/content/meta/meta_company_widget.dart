@@ -6,7 +6,7 @@ import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart
 import 'package:portfolio_v2/presentation/src/widget/text/hoverable_text_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../../theme/dimensions.dart';
+import '../../../../../../theme/dimensions.dart';
 
 class MetaCompanyWidget extends StatelessWidget {
   final CompanyEntity company;

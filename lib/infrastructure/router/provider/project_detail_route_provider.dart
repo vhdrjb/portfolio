@@ -3,12 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_v2/domain/src/project/find/find_project_by_id_usecase.dart';
 import 'package:portfolio_v2/infrastructure/router/provider/base_route.dart';
-import 'package:portfolio_v2/presentation/src/extensions/context_extensions.dart';
 import 'package:portfolio_v2/presentation/src/modules/project_detail/bloc/project_detail_bloc.dart';
 import 'package:portfolio_v2/presentation/src/modules/project_detail/project_detail_page.dart';
 
-import '../../../presentation/src/base/page/responsive_page_component.dart';
-import '../../../presentation/src/modules/project_detail/project_detail_mobile.dart';
 
 class ProjectDetailRouteProvider extends BaseRoute<ProjectDetailBloc> {
   final FindProjectByIdUsecase findProjectByIdUsecase;
@@ -21,12 +18,7 @@ class ProjectDetailRouteProvider extends BaseRoute<ProjectDetailBloc> {
   @override
   Widget provide(BuildContext context, GoRouterState state) {
     return BlocProvider(
-      create: (_) => getBloc(state),
-      child: ResponsivePageComponent(
-        desktop: (size) =>  const ProjectDetailPage(),
-        mobile: (size) => const ProjectDetailMobile() , tablet: null,
-      ),
-    );
+        create: (_) => getBloc(state), child: const ProjectDetailPage());
   }
 
   ProjectDetailRouteProvider({
