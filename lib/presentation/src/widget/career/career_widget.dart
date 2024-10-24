@@ -28,7 +28,7 @@ class CareerWidget extends StatelessWidget {
                   career.position,
                   style: context.textTheme.titleMedium?.copyWith(
                       color: context.appColorScheme.primaryText,
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w300),
                 ),
                 Dimensions.marginVertical_16,
                 Text(

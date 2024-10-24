@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_v2/domain/domain.dart';
-import 'package:portfolio_v2/presentation/src/modules/project_detail/component/content/project_gallery_widget.dart';
+import 'package:portfolio_v2/presentation/src/modules/project_detail/component/web/content/project_gallery_widget.dart';
 import 'package:portfolio_v2/presentation/src/modules/project_detail/component/header/project_header_widget.dart';
 
-import '../../../theme/dimensions.dart';
+import '../../../../theme/dimensions.dart';
 import 'content/content_widget.dart';
 import 'content/meta/meta_data_widget.dart';
-import 'header/project_name_widget.dart';
 
-class ProjectDetailWidget extends StatefulWidget {
+class ProjectDetailWebWidget extends StatefulWidget {
   final ProjectEntity project;
 
-  const ProjectDetailWidget({super.key, required this.project});
+  const ProjectDetailWebWidget({super.key, required this.project});
 
   @override
-  State<ProjectDetailWidget> createState() => _ProjectDetailWidgetState();
+  State<ProjectDetailWebWidget> createState() => _ProjectDetailWidgetState();
 }
 
-class _ProjectDetailWidgetState extends State<ProjectDetailWidget>
+class _ProjectDetailWidgetState extends State<ProjectDetailWebWidget>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
@@ -48,13 +47,12 @@ class _ProjectDetailWidgetState extends State<ProjectDetailWidget>
                     minWidth: Dimensions.homeContentWebMinWidth,
                     maxWidth: Dimensions.homeContentWebMaxWidth,
                   ),
-                  child: TabBarView(
-                      controller: _tabController,
-                      children: [
+                  child: TabBarView(controller: _tabController, children: [
                     ContentWidget(
                       project: widget.project,
                     ),
-                    ProjectGalleryWidget(images: widget.project.gallery?.toList())
+                    ProjectGalleryWidget(
+                        images: widget.project.gallery?.toList())
                   ]),
                 ),
               ),

@@ -18,7 +18,6 @@ class AboutMeComponent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Dimensions.marginVertical_16,
         Divider(
           color: context.appColorScheme.dividerColor,
         ),

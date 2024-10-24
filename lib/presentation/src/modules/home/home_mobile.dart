@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_v2/presentation/src/modules/home/components/profile/web/profile_web_component.dart';
+import 'package:portfolio_v2/presentation/src/modules/home/components/tab/tab_bar_widget.dart';
 import '../../config/routes.dart';
 import '../../extensions/context_extensions.dart';
 import '../../extensions/string_extensions.dart';
@@ -10,15 +11,13 @@ import '../../theme/dimensions.dart';
 import '../../base/page/base_page.dart';
 import '../../widget/tab/tab_widget.dart';
 import 'bloc/home_bloc.dart';
-import 'components/tab/tab_bar_widget.dart';
 import 'home_route_strategy.dart';
 
-class HomePage extends BasePage<HomeBloc> {
+class HomeMobile extends BasePage<HomeBloc> {
   final Widget child;
   final String? path;
   final double width;
-
-  const HomePage({super.key, required this.child, required this.path,required this.width});
+  const HomeMobile({super.key, required this.child, required this.path,required this.width});
 
   @override
   State<StatefulWidget> createState() => _PageState();
@@ -32,8 +31,8 @@ class _PageState extends PageState<HomeBloc> {
     bloc.add(GetUserInfoEvent());
   }
 
-  HomePage get parentWidget {
-    return widget as HomePage;
+  HomeMobile get parentWidget {
+    return widget as HomeMobile;
   }
 
   @override
@@ -59,27 +58,15 @@ class _PageState extends PageState<HomeBloc> {
                     child: TabBarWidget(width: parentWidget.width,path: parentWidget.path,),
                   ),
                   Dimensions.marginVertical_32,
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Flexible(
-                        child: ProfileWebComponent(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.margin_16),
+                    child: Container(
+                      constraints: const BoxConstraints(
+                        minWidth: Dimensions.homeContentWebMinWidth,
+                        maxWidth: Dimensions.homeContentWebMaxWidth,
                       ),
-                      Dimensions.marginHorizontal_32,
-                      Expanded(
-                        child: Center(
-                          child: Container(
-                            constraints: const BoxConstraints(
-                              minWidth: Dimensions.homeContentWebMinWidth,
-                              maxWidth: Dimensions.homeContentWebMaxWidth,
-                            ),
-                            child: parentWidget.child,
-                          ),
-                        ),
-                      ),
-                    ],
+                      child: parentWidget.child,
+                    ),
                   )
                 ],
               ),

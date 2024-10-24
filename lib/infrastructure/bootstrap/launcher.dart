@@ -30,4 +30,5 @@ Future<void> launch(Application application) async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
   runApp(application());
+  FlutterNativeSplash.remove();
 }

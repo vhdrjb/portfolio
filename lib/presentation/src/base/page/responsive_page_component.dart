@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart' hide DeviceType;
-import '../../theme/theme_config.dart';
+import 'package:portfolio_v2/presentation/src/base/page/responsive_notifier.dart';
+import 'package:provider/provider.dart';
 import 'device_type.dart';
-import '../../config/resolution_config.dart';
+
+typedef PageBuilder = Widget Function(Size size);
 
 class ResponsivePageComponent extends StatefulWidget {
-
-  final Widget mobile;
-  final Widget? tablet;
-  final Widget desktop;
+  final PageBuilder mobile;
+  final PageBuilder? tablet;
+  final PageBuilder desktop;
 
   const ResponsivePageComponent(
-      {super.key,
-      required this.desktop,
-      required this.mobile,
-      required this.tablet});
+      {super.key, required this.desktop, required this.mobile, this.tablet});
 
   @override
   State<ResponsivePageComponent> createState() =>
@@ -24,36 +21,27 @@ class ResponsivePageComponent extends StatefulWidget {
 class _ResponsivePageComponentState extends State<ResponsivePageComponent> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth <= ResolutionConfig.maxMobileWidth) {
-          if (ThemeConfig.type != DeviceType.mobile) {
-            ScreenUtil.configure(designSize: const Size(430, 932));
-            ThemeConfig.type = DeviceType.mobile;
-          }
-          return widget.mobile;
-        }
-
-        if (widget.tablet!=null) {
-          if (constraints.maxWidth >= ResolutionConfig.minTabletWidth &&
-              constraints.maxWidth <= ResolutionConfig.maxTableWidth) {
-            if (ThemeConfig.type != DeviceType.tablet) {
-              ScreenUtil.configure(designSize: const Size(1024, 1366));
-              ThemeConfig.type = DeviceType.tablet;
+    final ResponsiveNotifier notifier =
+        Provider.of<ResponsiveNotifier>(context);
+    return ListenableBuilder(
+      listenable: notifier,
+      builder: (context, _) {
+        switch (notifier.deviceType) {
+          case DeviceType.mobile:
+            return widget.mobile(
+                Size(notifier.deviceSize.width, notifier.deviceSize.height));
+          case DeviceType.tablet:
+            if (widget.tablet != null) {
+              return widget.tablet!(
+                  Size(notifier.deviceSize.width, notifier.deviceSize.height));
+            } else {
+              return widget.desktop(
+                  Size(notifier.deviceSize.width, notifier.deviceSize.height));
             }
-            return widget.tablet!;
-          }
+          case DeviceType.desktop:
+            return widget.desktop(
+                Size(notifier.deviceSize.width, notifier.deviceSize.height));
         }
-
-        if (constraints.maxWidth >= ResolutionConfig.maxMobileWidth) {
-          if (ThemeConfig.type != DeviceType.desktop) {
-            ScreenUtil.configure(designSize: const Size(1920, 1080));
-            ThemeConfig.type = DeviceType.desktop;
-          }
-          return widget.desktop;
-        }
-
-        return widget.desktop;
       },
     );
   }

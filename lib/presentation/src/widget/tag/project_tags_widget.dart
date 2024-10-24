@@ -14,7 +14,7 @@ class ProjectTagsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double availableWidth = constraints.maxWidth ;
+        double availableWidth = constraints.maxWidth  - Dimensions.margin_32;
         double usedWidth = 0;
         List<Widget> visibleTags = [];
         for (var tag in tags) {
@@ -41,7 +41,7 @@ class ProjectTagsWidget extends StatelessWidget {
       text: TextSpan(
         text: (widget as TagWidget).tag,
         style: context.textTheme.titleSmall
-            ?.copyWith(color: context.appColorScheme.linkColor),
+            ?.copyWith(color: context.appColorScheme.linkColor,fontWeight: FontWeight.w600),
       ),
       textDirection: TextDirection.ltr,
     )

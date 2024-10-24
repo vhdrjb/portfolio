@@ -100,10 +100,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i956.FindFavoriteProjectsUsecase>(() =>
         _i956.FindFavoriteProjectsUsecase(
             repository: gh<_i337.ProjectRepository>()));
-    gh.factory<_i67.FindAllProjectUsecase>(() =>
-        _i67.FindAllProjectUsecase(repository: gh<_i337.ProjectRepository>()));
     gh.factory<_i141.FindProjectByIdUsecase>(() => _i141.FindProjectByIdUsecase(
         repository: gh<_i337.ProjectRepository>()));
+    gh.factory<_i67.FindAllProjectUsecase>(() =>
+        _i67.FindAllProjectUsecase(repository: gh<_i337.ProjectRepository>()));
     gh.factory<_i349.FindAllFavoriteServiceUsecase>(() =>
         _i349.FindAllFavoriteServiceUsecase(
             repository: gh<_i898.ServiceRepository>()));
@@ -138,11 +138,11 @@ extension GetItInjectableX on _i174.GetIt {
           favoriteServiceUsecase: gh<_i349.FindAllFavoriteServiceUsecase>(),
           findLastCareerUsecase: gh<_i50.FindLastCareerUsecase>(),
         ));
-    gh.factory<_i117.ProjectDetailBloc>(() => _i117.ProjectDetailBloc(
-        findProjectByIdUsecase: gh<_i141.FindProjectByIdUsecase>()));
     gh.factory<_i1069.ProjectDetailRouteProvider>(() =>
         _i1069.ProjectDetailRouteProvider(
             findProjectByIdUsecase: gh<_i141.FindProjectByIdUsecase>()));
+    gh.factory<_i117.ProjectDetailBloc>(() => _i117.ProjectDetailBloc(
+        findProjectByIdUsecase: gh<_i141.FindProjectByIdUsecase>()));
     gh.factory<_i408.ProjectsRouteProvider>(() => _i408.ProjectsRouteProvider(
         findAllProjectUsecase: gh<_i67.FindAllProjectUsecase>()));
     gh.factory<_i389.ProjectsBloc>(() => _i389.ProjectsBloc(

@@ -6,7 +6,7 @@ import 'package:portfolio_v2/presentation/src/widget/placeholder/custom_placehol
 import 'package:portfolio_v2/presentation/src/widget/project/project_overview_widget.dart';
 import 'package:portfolio_v2/presentation/src/widget/shimmer/shimmer_widget.dart';
 import 'package:widget_component_annotation/widget_component_annotation.dart';
-import '../bloc/overview_bloc.dart';
+import '../../bloc/overview_bloc.dart';
 
 part 'favorite_projects_component.g.dart';
 
@@ -37,6 +37,12 @@ class FavoriteProjectsComponent extends _$FavoriteProjectsComponent {
       itemBuilder: (_, int index) =>
           ProjectOverviewWidget(project: state.projects[index]),
     );
+  }
+
+  @override
+  void onInitialization(BuildContext context) {
+    super.onInitialization(context);
+    context.read<OverviewBloc>().add(FindFavoriteProjectsEvent());
   }
 
   @override

@@ -14,16 +14,9 @@ class ProjectDetailPage extends BasePage<ProjectDetailBloc> {
 class _ProjectDetailState extends PageState<ProjectDetailBloc> {
 
   @override
-  void initState() {
-    super.initState();
-    bloc.add(GetProjectInfoEvent());
-  }
-
-  @override
   Widget buildScreen(BuildContext context) {
     return const Scaffold(
       body: ProjectDetailComponent(),
     );
   }
-
 }

@@ -5,6 +5,7 @@ import 'package:portfolio_v2/presentation/src/extensions/string_extensions.dart'
 import 'package:portfolio_v2/presentation/src/modules/project_detail/component/header/project_name_widget.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../theme/dimensions.dart';
+import '../../../../widget/tab/scrollable_tab_widget.dart';
 import '../../../../widget/tab/tab_widget.dart';
 
 class ProjectHeaderWidget extends StatelessWidget {
@@ -71,13 +72,13 @@ class ProjectHeaderWidget extends StatelessWidget {
                       controller: tabController,
                       tabs: [
                         Tab(
-                          child: TabWidget(
+                          child: ScrollableTabWidget(
                             label: 'Info',
                             iconPath: 'overview'.toSvg,
                           ),
                         ),
                         Tab(
-                          child: TabWidget(
+                          child: ScrollableTabWidget(
                             label: 'Gallery',
                             iconPath: 'application'.toSvg,
                           ),

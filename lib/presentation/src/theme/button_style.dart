@@ -6,6 +6,9 @@ class AppButtonStyle extends ButtonStyle {
   final BuildContext context;
 
   @override
+  WidgetStateProperty<double?>? get elevation => const WidgetStatePropertyAll(0);
+
+  @override
   WidgetStateProperty<OutlinedBorder?>? get shape =>
       WidgetStatePropertyAll(RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(Dimensions.buttonBorderRadius),
@@ -27,6 +30,37 @@ class AppButtonStyle extends ButtonStyle {
       WidgetStatePropertyAll(context.appColorScheme.buttonColor);
 
   const AppButtonStyle({
+    required this.context,
+  });
+}
+class AppMobileButtonStyle extends ButtonStyle {
+  final BuildContext context;
+
+  @override
+  WidgetStateProperty<double?>? get elevation => const WidgetStatePropertyAll(0);
+
+  @override
+  WidgetStateProperty<OutlinedBorder?>? get shape =>
+      WidgetStatePropertyAll(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dimensions.buttonBorderRadius),
+          side: BorderSide(
+              color: context.appColorScheme.dividerColor, width: 1)));
+
+  @override
+  WidgetStateProperty<EdgeInsetsGeometry?>? get padding =>
+      const WidgetStatePropertyAll(EdgeInsets.symmetric(
+          vertical: Dimensions.margin_16,
+          horizontal: Dimensions.margin_32));
+
+  @override
+  WidgetStateProperty<Color?>? get foregroundColor =>
+      WidgetStatePropertyAll(context.appColorScheme.primaryText);
+
+  @override
+  WidgetStateProperty<Color?>? get backgroundColor =>
+      WidgetStatePropertyAll(context.appColorScheme.buttonColor);
+
+  const AppMobileButtonStyle({
     required this.context,
   });
 }
@@ -58,6 +92,8 @@ class AppAccentTextButtonStyle extends ButtonStyle {
 class TabBarButtonStyle extends ButtonStyle {
   final BuildContext context;
 
+  @override
+  WidgetStateProperty<double?>? get elevation => const WidgetStatePropertyAll(0);
   @override
   WidgetStateProperty<Color?>? get backgroundColor =>
       WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
