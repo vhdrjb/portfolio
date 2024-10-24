@@ -40,49 +40,46 @@ class _PageState extends PageState<HomeBloc> {
   Widget buildScreen(BuildContext context) {
     return Scaffold(
         backgroundColor: context.appColorScheme.surface,
-        body: ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                        color: context.appColorScheme.headerColor,
-                        border: Border(
-                            bottom: BorderSide(
-                                color: context.appColorScheme.dividerColor,
-                                width: 2))),
-                    child: TabBarWidget(width: parentWidget.width,path: parentWidget.path,),
-                  ),
-                  Dimensions.marginVertical_32,
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Flexible(
-                        child: ProfileWebComponent(),
-                      ),
-                      Dimensions.marginHorizontal_32,
-                      Expanded(
-                        child: Center(
-                          child: Container(
-                            constraints: const BoxConstraints(
-                              minWidth: Dimensions.homeContentWebMinWidth,
-                              maxWidth: Dimensions.homeContentWebMaxWidth,
-                            ),
-                            child: parentWidget.child,
+        body: Align(
+          alignment: Alignment.topCenter,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                      color: context.appColorScheme.headerColor,
+                      border: Border(
+                          bottom: BorderSide(
+                              color: context.appColorScheme.dividerColor,
+                              width: 2))),
+                  child: TabBarWidget(width: parentWidget.width,path: parentWidget.path,),
+                ),
+                Dimensions.marginVertical_32,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Flexible(
+                      child: ProfileWebComponent(),
+                    ),
+                    Dimensions.marginHorizontal_32,
+                    Expanded(
+                      child: Center(
+                        child: Container(
+                          constraints: const BoxConstraints(
+                            minWidth: Dimensions.homeContentWebMinWidth,
+                            maxWidth: Dimensions.homeContentWebMaxWidth,
                           ),
+                          child: parentWidget.child,
                         ),
                       ),
-                    ],
-                  )
-                ],
-              ),
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
         ));

@@ -25,7 +25,6 @@ class CareerComponent extends _$CareerComponent {
   @override
   Widget onDataWidget(context, AllCareerDataState state) {
     return ListView.separated(
-        shrinkWrap: true,
         itemBuilder: (context, index) => CareerWidget(
               career: state.careers[index],
             ),
