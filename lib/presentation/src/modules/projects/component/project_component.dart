@@ -27,6 +27,7 @@ class ProjectComponent extends _$ProjectComponent {
   Widget onDataWidget(context, AllProjectDataState state) {
     return ListView.separated(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         addRepaintBoundaries: false,
         addAutomaticKeepAlives: false,
         addSemanticIndexes: true,

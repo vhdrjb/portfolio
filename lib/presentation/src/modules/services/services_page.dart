@@ -22,7 +22,7 @@ class _ServicesState extends PageState<ServicesBloc> {
   }
   @override
   Widget buildScreen(BuildContext context) {
-    return const ServicesComponent();
+    return const SingleChildScrollView(child: ServicesComponent());
   }
 
 }

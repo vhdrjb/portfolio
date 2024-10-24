@@ -26,6 +26,7 @@ class ServicesComponent extends _$ServicesComponent {
     return Padding(
       padding: const EdgeInsets.only(bottom: Dimensions.margin_16),
       child: GridView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: state.services.length,
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(

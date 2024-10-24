@@ -21,6 +21,6 @@ class _ProjectsState extends PageState<ProjectsBloc> {
   }
   @override
   Widget buildScreen(BuildContext context) {
-    return const ProjectComponent();
+    return const SingleChildScrollView(child: ProjectComponent());
   }
 }

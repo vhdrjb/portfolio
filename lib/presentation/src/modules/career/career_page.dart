@@ -22,6 +22,6 @@ class _CareerState extends PageState<CareerBloc> {
 
   @override
   Widget buildScreen(BuildContext context) {
-   return const CareerComponent();
+   return const SingleChildScrollView(child: CareerComponent());
   }
 }
