@@ -44,7 +44,6 @@ class OverviewPageWeb extends StatelessWidget {
             const SizedBox(
               height: Dimensions.margin_24,
             ),
-            const CopyrightWidget(),
           ],
         ),
       ),
