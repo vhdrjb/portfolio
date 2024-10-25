@@ -34,7 +34,9 @@ class ContentMobileWidget extends StatelessWidget {
             children: [
               Dimensions.marginHorizontal_16,
               Expanded(
-                child: Text(project.name,style: context.textTheme.titleLarge?.copyWith(
+                child: Text(project.name,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.textTheme.titleLarge?.copyWith(
                     color: context.appColorScheme.primaryText
                 ),),
               ),

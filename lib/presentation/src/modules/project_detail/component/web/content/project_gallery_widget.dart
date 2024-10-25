@@ -26,7 +26,6 @@ class ProjectGalleryWidget extends StatelessWidget {
     }
     return GridView.builder(
         itemCount: images!.length,
-        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (context, index) => GestureDetector(
               child: ClipRRect(

@@ -10,6 +10,7 @@ class NavigateToOverviewEvent extends HomeEvent {}
 class NavigateToServicesEvent extends HomeEvent {}
 
 class NavigateToCareerEvent extends HomeEvent {}
+class NavigateToCreditEvent extends HomeEvent {}
 
 class GetUserInfoEvent extends HomeEvent {}
 

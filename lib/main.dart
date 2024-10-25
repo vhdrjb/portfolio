@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
       child: ChangeNotifierProvider.value(
         value: _notifier,
         child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           title: 'Vahid Rajabi Portfolio',
           routerDelegate: _router.router.routerDelegate,
           routeInformationParser: _router.router.routeInformationParser,

@@ -10,6 +10,7 @@ import 'package:portfolio_v2/infrastructure/router/provider/services_route_provi
 import 'package:portfolio_v2/presentation/presentation.dart';
 
 import '../../presentation/src/theme/dimensions.dart';
+import 'provider/credit_route_provider.dart';
 
 @LazySingleton()
 class AppRouteFactory {
@@ -19,6 +20,8 @@ class AppRouteFactory {
   final ServiceRouteProvider _serviceRouteProvider;
   final CareerRouteProvider _careerRouteProvider;
   final ProjectDetailRouteProvider _projectDetailRouteProvider;
+  final CreditRouteProvider _creditRouteProvider;
+
   CustomTransitionPage create(BuildContext context, GoRouterState state) {
     final String path = state.path ?? '/';
     if (path == Routes.projects) {
@@ -35,17 +38,19 @@ class AppRouteFactory {
     if (path == Routes.careers) {
       return _providePage(_careerRouteProvider.provide(context, state), state);
     }
-     if (path == Routes.projectDetail) {
-       return _providePage(_projectDetailRouteProvider.provide(context, state), state);
-     }
+    if (path == Routes.projectDetail) {
+      return _providePage(
+          _projectDetailRouteProvider.provide(context, state), state);
+    }
+    if (path == Routes.credit) {
+      return _providePage(_creditRouteProvider.provide(context, state), state);
+    }
     throw 'page not found';
   }
 
   CustomTransitionPage _providePage(Widget page, GoRouterState state) {
     return CustomTransitionPage(
-      child: SizedBox(
-        width: Dimensions.homeContentWebMaxWidth,
-          child: page),
+      child: SizedBox(width: Dimensions.homeContentWebMaxWidth, child: page),
       transitionDuration: const Duration(milliseconds: 100),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(
@@ -67,10 +72,12 @@ class AppRouteFactory {
     required ServiceRouteProvider serviceRouteProvider,
     required CareerRouteProvider careerRouteProvider,
     required ProjectDetailRouteProvider projectDetailRouteProvider,
+    required CreditRouteProvider creditRouteProvider,
   })  : _homeRouteProvider = homeRouteProvider,
         _overviewRouteProvider = overviewRouteProvider,
         _projectsRouteProvider = projectsRouteProvider,
         _serviceRouteProvider = serviceRouteProvider,
         _careerRouteProvider = careerRouteProvider,
-        _projectDetailRouteProvider = projectDetailRouteProvider;
+        _projectDetailRouteProvider = projectDetailRouteProvider,
+        _creditRouteProvider = creditRouteProvider;
 }

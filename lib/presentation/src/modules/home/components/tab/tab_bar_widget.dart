@@ -93,6 +93,16 @@ class _TabBarMobileWidgetState extends State<TabBarWidget>
                                   label: 'Career',
                                   iconPath: 'career'.toSvg,
                                 );
+                              } else if (index == 4) {
+                                return TabWidget(
+                                  onPress: () {
+                                    _routeStrategy.move(
+                                        4, context.read<HomeBloc>());
+                                  },
+                                  selected: widget.path == Routes.careers,
+                                  label: 'Credit',
+                                  iconPath: 'credit'.toSvg,
+                                );
                               }
                               return const Spacer();
                             },
@@ -119,57 +129,60 @@ class _TabBarMobileWidgetState extends State<TabBarWidget>
             ),
           ),
         if (overflowCount > 0)
-          Container(
-            height: Dimensions.tabOverflowSize,
-            width: Dimensions.tabOverflowSize,
-            decoration: BoxDecoration(
-                color: context.appColorScheme.surface,
+          PopupMenuButton<int>(
+            color: context.appColorScheme.surface,
+            shape: RoundedRectangleBorder(
+                side: BorderSide(color: context.appColorScheme.dividerColor),
                 borderRadius:
-                    BorderRadius.circular(Dimensions.buttonBorderRadius),
-                border: Border.all(color: context.appColorScheme.dividerColor)),
-            child: PopupMenuButton<int>(
-              onSelected: (value) {
-                _routeStrategy.move(value, context.read<HomeBloc>());
-              },
-              icon: Icon(
+                    BorderRadius.circular(Dimensions.buttonBorderRadius)),
+            onSelected: (value) {
+              _routeStrategy.move(value, context.read<HomeBloc>());
+            },
+            icon: Center(
+              child: Icon(
                 Icons.more_horiz_rounded,
-                color: context.appColorScheme.dividerColor,
+                color: context.appColorScheme.primaryText,
               ),
-              itemBuilder: (context) {
-                return [
-                  ...List.generate(overflowCount, (index) {
-                    int i = (4 - overflowCount) + index;
-                    debugPrint('index is $i');
-                    if (i == 0) {
-                      return const PopupMenuItem<int>(
-                        value: 0,
-                        child: Text('Overview'),
-                      );
-                    } else if (i == 1) {
-                      return const PopupMenuItem<int>(
-                        value: 1,
-                        child: Text('Projects'),
-                      );
-                    } else if (i == 2) {
-                      return const PopupMenuItem<int>(
-                        value: 2,
-                        child: Text('Services'),
-                      );
-                    } else if (i == 3) {
-                      return const PopupMenuItem<int>(
-                        value: 3,
-                        child: Text('Career'),
-                      );
-                    }
-
-                    return const PopupMenuItem<int>(
-                      value: -1,
-                      child: Text(''),
-                    );
-                  })
-                ];
-              },
             ),
+            itemBuilder: (context) {
+              return [
+                ...List.generate(overflowCount, (index) {
+                  int i = (5 - overflowCount) + index;
+                  debugPrint('index is $i');
+                  if (i == 0) {
+                    return const PopupMenuItem<int>(
+                      value: 0,
+                      child: Text('Overview'),
+                    );
+                  } else if (i == 1) {
+                    return const PopupMenuItem<int>(
+                      value: 1,
+                      child: Text('Projects'),
+                    );
+                  } else if (i == 2) {
+                    return const PopupMenuItem<int>(
+                      value: 2,
+                      child: Text('Services'),
+                    );
+                  } else if (i == 3) {
+                    return const PopupMenuItem<int>(
+                      value: 3,
+                      child: Text('Career'),
+                    );
+                  } else if (i == 4) {
+                    return const PopupMenuItem<int>(
+                      value: 4,
+                      child: Text('Credit'),
+                    );
+                  }
+
+                  return const PopupMenuItem<int>(
+                    value: -1,
+                    child: Text(''),
+                  );
+                })
+              ];
+            },
           ),
         Dimensions.marginHorizontal_4,
       ],
@@ -177,15 +190,15 @@ class _TabBarMobileWidgetState extends State<TabBarWidget>
   }
 
   void _buildTabs() {
-    if (widget.width > 528) {
-      tabCount = 4;
+    if (widget.width > Dimensions.tabBarWidth + Dimensions.margin_8) {
+      tabCount = 5;
       overflowCount = 0;
     } else {
       double tabWidth = 180;
       double width =
           widget.width - (Dimensions.margin_8 + Dimensions.tabOverflowSize);
       tabCount = width ~/ tabWidth;
-      overflowCount = 4 - tabCount;
+      overflowCount = 5 - tabCount;
     }
   }
 
@@ -194,22 +207,28 @@ class _TabBarMobileWidgetState extends State<TabBarWidget>
     if (widget.path == Routes.overview) {
       baseLeft += 0;
     } else if (widget.path == Routes.projects) {
-      if (overflowCount == 3) {
+      if (overflowCount == 4) {
         baseLeft += widget.width + Dimensions.tabIndicatorWidth;
-      }else {
+      } else {
         baseLeft += Dimensions.tabIndicatorWidth * 1;
       }
     } else if (widget.path == Routes.services) {
-      if (overflowCount >= 2) {
+      if (overflowCount >= 3) {
         baseLeft += widget.width + Dimensions.tabIndicatorWidth;
-      }else {
+      } else {
         baseLeft += Dimensions.tabIndicatorWidth * 2;
       }
-    } else if (widget.path == Routes.careers ) {
+    } else if (widget.path == Routes.careers) {
+      if (overflowCount >= 2) {
+        baseLeft += widget.width + Dimensions.tabIndicatorWidth;
+      } else {
+        baseLeft += Dimensions.tabIndicatorWidth * 3;
+      }
+    } else if (widget.path == Routes.credit) {
       if (overflowCount >= 1) {
         baseLeft += widget.width + Dimensions.tabIndicatorWidth;
-      }else {
-        baseLeft += Dimensions.tabIndicatorWidth * 3;
+      } else {
+        baseLeft += Dimensions.tabIndicatorWidth * 4;
       }
     }
     return baseLeft;

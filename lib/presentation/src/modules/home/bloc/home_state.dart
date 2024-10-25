@@ -23,6 +23,10 @@ class NavigateToCareerState extends MoveState implements HomeState {
   NavigateToCareerState() : super(path: Routes.careers);
 }
 
+class NavigateToCreditState extends MoveState implements HomeState {
+  NavigateToCreditState() : super(path: Routes.credit);
+}
+
 class NavigateToProjectDetailState extends MoveState implements HomeState {
   NavigateToProjectDetailState({required String id})
       : super(path: Routes.projectDetailProvider(id));

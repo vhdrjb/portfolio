@@ -44,6 +44,7 @@ import '../../domain/src/service/find/find_all_favorite_service_usecase.dart'
 import '../../domain/src/service/find/find_all_service_usecase.dart' as _i1026;
 import '../../domain/src/user/find/get_user_information_usecase.dart' as _i188;
 import '../../presentation/src/modules/career/bloc/career_bloc.dart' as _i986;
+import '../../presentation/src/modules/credit/bloc/credit_bloc.dart' as _i27;
 import '../../presentation/src/modules/home/bloc/home_bloc.dart' as _i487;
 import '../../presentation/src/modules/overview/bloc/overview_bloc.dart'
     as _i568;
@@ -56,6 +57,7 @@ import '../../presentation/src/modules/services/bloc/services_bloc.dart'
 import '../router/app_route_factory.dart' as _i994;
 import '../router/app_router.dart' as _i81;
 import '../router/provider/career_route_provider.dart' as _i196;
+import '../router/provider/credit_route_provider.dart' as _i1071;
 import '../router/provider/home_route_provider.dart' as _i692;
 import '../router/provider/overview_route_provider.dart' as _i580;
 import '../router/provider/project_detail_route_provider.dart' as _i1069;
@@ -74,6 +76,8 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i259.BaseRepository>(() => _i259.BaseRepository());
+    gh.factory<_i1071.CreditRouteProvider>(() => _i1071.CreditRouteProvider());
+    gh.factory<_i27.CreditBloc>(() => _i27.CreditBloc());
     gh.factory<_i951.ServiceDatasource>(() => _i47.ServiceApiService());
     gh.factory<_i894.AchievementsDatasource>(
         () => _i1025.AchievementApiService());
@@ -154,6 +158,7 @@ extension GetItInjectableX on _i174.GetIt {
           serviceRouteProvider: gh<_i33.ServiceRouteProvider>(),
           careerRouteProvider: gh<_i196.CareerRouteProvider>(),
           projectDetailRouteProvider: gh<_i1069.ProjectDetailRouteProvider>(),
+          creditRouteProvider: gh<_i1071.CreditRouteProvider>(),
         ));
     gh.lazySingleton<_i81.AppRouter>(
         () => _i81.AppRouter(routeFactory: gh<_i994.AppRouteFactory>()));

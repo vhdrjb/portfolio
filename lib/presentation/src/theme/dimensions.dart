@@ -72,7 +72,7 @@ abstract class Dimensions {
 
   static const double tabIndicatorWidth = 120;
   static const double tabIconSize = 12;
-  static const double tabBarWidth = 510;
+  static const double tabBarWidth = 640;
   static const double tabBarHeight = 48;
   static const double profileImageSize = 300;
   static const double profileMobileImageSize = 93;

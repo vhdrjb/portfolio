@@ -62,11 +62,12 @@ class HomeBloc extends AbstractBloc<HomeEvent, HomeState> {
       }
     }, transformer: droppable());
 
-    on<OpenProjectByIdEvent>(
-      (event, emit) {
-        emit(NavigateToProjectDetailState(id: event.id.toString()));
-      },
-      transformer: droppable()
-    );
+    on<NavigateToCreditEvent>((event, emit) {
+      emit(NavigateToCreditState());
+    }, transformer: droppable());
+
+    on<OpenProjectByIdEvent>((event, emit) {
+      emit(NavigateToProjectDetailState(id: event.id.toString()));
+    }, transformer: droppable());
   }
 }
